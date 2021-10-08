@@ -230,7 +230,7 @@ input, select, textarea {
 			}
 
 			a.special:not(.button):hover:before {
-				background-color: rgba(255, 255, 255, 0.025);
+				background-color: rgba(19, 226, 47, 0.025);
 			}
 
 			a.special:not(.button):active:before {
@@ -2871,7 +2871,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: transparent;
+		background-color: #4c5c96; /*color del boton en reposo majo*/
 		border-radius: 5px;
 		border: 0;
 		box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.125);
@@ -2896,7 +2896,7 @@ input, select, textarea {
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			background-color: rgba(255, 255, 255, 0.025);
+			background-color: hsl(227, 75%, 62%); /*majo boton hover*/
 		}
 
 		input[type="submit"]:active,
@@ -2904,7 +2904,7 @@ input, select, textarea {
 		input[type="button"]:active,
 		button:active,
 		.button:active {
-			background-color: rgba(255, 255, 255, 0.075);
+			background-color: hsl(228, 15%, 31%);
 		}
 
 		input[type="submit"].icon:before,
@@ -3084,7 +3084,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
 		transition: background-color 0.2s ease-in-out;
-		background-color: rgba(53, 56, 73, 0.95);
+		background-color:rgba(64, 70, 84, 0.4);
 		height: 3.5em;
 		left: 0;
 		line-height: 3.5em;
@@ -3383,7 +3383,7 @@ input, select, textarea {
 			opacity: 1;
 		}
 
-/* Banner */
+		/* Banner */
 
 	#banner {
 		padding: 10em 0 4.75em 0 ;
@@ -3474,7 +3474,7 @@ input, select, textarea {
 			#banner {
 				padding: 7em 0 8.25em 0 ;
 				background-color: #2e3141;
-				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+				background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(121, 42, 105, 0.8)), url("../../images/bg.jpg");
 				background-size: auto,
  cover;
 				background-position: center,
@@ -3586,7 +3586,7 @@ input, select, textarea {
 		#wrapper > header {
 			padding: 9em 0 6.25em 0 ;
 			background-color: #2e3141;
-			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
+			background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(121, 42, 105, 0.8)), url("../../images/bg.jpg"); /*banner*/
 			background-size: auto,
  cover;
 			background-position: center,
