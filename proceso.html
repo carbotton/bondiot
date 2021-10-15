@@ -62,18 +62,42 @@
 									<p>Durante estas semanas nos familiarizamos con las librerías y entornos a utilizar para el desarrollo del software del proyecto. En particular, investigamos sobre la integración entre Thingsboard y el ESP8266, la toma de datos de los distintos sensores a bordo del ómnibus, el conteo de las direcciones MAC y el armado del JSON para el envío de los datos obtenidos.</p>
 									<!-- <h3 class="major">Primera versión de código</h3>-->
 									<h3 class="major">20 de setiembre, 2021</h3>
-									<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>		
-									<!-- <h3 class="major">Primera versión de código</h3>-->
-									<h3 class="major">20 de setiembre, 2021</h3>
-									<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>	
+									<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>			
 									<h3 class="major">23 de setiembre, 2021</h3>
 									<p>Se probó la celda de carga junto con el módulo HX711 y el sensor MQ2 utilizando la primera versión de código obteniendo buenos resultados.</p>	
+									<figure>
+										<center><img src="./files/investigacion/cableado-celda-carga.png" width="80%"/></center>
+										<center><figcaption>Imagen tomada de <a href="https://www.instructables.com/Arduino-Scale-With-5kg-Load-Cell-and-HX711-Amplifi/" style="color: rgb(11, 12, 14)"> este tutorial</a>.</figcaption></center>
+									  </figure>		
+									<div>
+										<p></p>
+									</div>							
 									<h3 class="major">30 de setiembre, 2021</h3>
 									<p>Nos reunimos a sacar medidas y planear el armado de la maqueta y los prototipos de prueba.</p>	
 									<h3 class="major">04 de octubre, 2021</h3>
 									<p>Para darle un agregado al Dashboard de Thingsboard, se encontraron widgets que permiten generar gráficas a partir de un histórico de datos, que si bien no recolecta en su totalidad los datos medidos, puede llegar a mostrar información relevante en función de datos pasados.</p>
 									<h3 class="major">05, 06 y 07 de octubre, 2021</h3>
-									<p>Durante esta semana avanzamos en la construcción de la maqueta haciendo la base y parte del cableado de componentes. </p><p> Previamente habian sido probados los componentes por separado, usando un código individual para cada uno. Esta semana comenzamos las pruebas utilizando el mismo código para todos, habiendo podido verificar el envío de medidas del sensor de CO2 via el ESP8266 hacia Thingsboard, comparando desde el Monitor Serial del IDE de Arduino la medida enviada con la mostrada en el Dashboard de Thingsboard.</p><p>Para poder programar el ESP8266 utilizando el IDE de Arduino seguimos las instrucciones mostradas en este tutorial: <a href="https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f" style="color: rgb(11, 12, 14)">Getting Started w/ NodeMCU ESP8266 on Arduino IDE.</a></p><p>Las librerías que se instalaron desde el IDE de Arduino son: PubSubClient de Nick O'Leary, para la comuniación con ThingsBoard y ArduinoJson. Para utilizar la libreria String se la puede importar directamente con la linea: <code>#include &lt;string.h&gt;</code> (notar que es "s" minúscula.</p>									
+									<p>Durante esta semana avanzamos en la construcción de la maqueta haciendo la base y parte del cableado de componentes.</p><p> Previamente habian sido probados los componentes por separado, usando un código individual para cada uno. Esta semana comenzamos las pruebas utilizando el mismo código para todos, habiendo podido verificar el envío de medidas del sensor de CO2 via el ESP8266 hacia Thingsboard, comparando desde el Monitor Serial del IDE de Arduino la medida enviada con la mostrada en el Dashboard de Thingsboard.</p><p>Para poder programar el ESP8266 utilizando el IDE de Arduino seguimos las instrucciones mostradas en este tutorial: <a href="https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f" style="color: rgb(11, 12, 14)">Getting Started w/ NodeMCU ESP8266 on Arduino IDE.</a></p><p>Las librerías que se instalaron desde el IDE de Arduino son: PubSubClient de Nick O'Leary, para la comuniación con ThingsBoard y ArduinoJson. Para utilizar la libreria String se la puede importar directamente con la linea: <code>#include &lt;string.h&gt;</code> (notar que es "s" minúscula.</p>									
+									<center><iframe src="./files/proceso/prueba-co2-10-07.mp4" height="400px" width="650px" border="1px"></iframe></center>
+									<p></p>
+									<p>En el video se puede ver la prueba del sensor de CO2, mostrando la lectura en el monitor serial de Arduino y en el dashboard de Thingsboard. </p>
+									<h3 class="major">13 y 14 de octubre, 2021</h3>						
+									<div class="">
+										<div class="inner">		
+											<section class="features">
+												<article>
+													<a href="#" class="image"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" height="50%" width="50%" /></a>
+													<p>Se continúa con el proceso de construcción de la maqueta. En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus.</p>
+													<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>
+												</article>												
+												<article>
+													<a href="#" class="image"><img src="./files/proceso/tupper-10.13.jpeg" /></a>
+													<a href="#" class="image"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" border="10px" /></a>
+												</article>																						
+											</section>		
+										</div>
+									</div>									
+																		
 																																																		
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
