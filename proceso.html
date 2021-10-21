@@ -60,6 +60,11 @@
 									<!-- <h3 class="major">Investigación de software</h3>-->
 									<h3 class="major">10 de setiembre al 23 de setiembre, 2021</h3>
 									<p>Durante estas semanas nos familiarizamos con las librerías y entornos a utilizar para el desarrollo del software del proyecto. En particular, investigamos sobre la integración entre Thingsboard y el ESP8266, la toma de datos de los distintos sensores a bordo del ómnibus, el conteo de las direcciones MAC y el armado del JSON para el envío de los datos obtenidos.</p>
+									<p>El sniffer para la detección de direcciones MAC funciona colocando el ESP8266, primero en modo ESTACION y luego en modo PROMISCUO para que pueda escuchar el trafico WiFi a su alrededor. Esto se hace en el Setup del codigo, donde tambien se asigna una funcion de CallBack la cual recibira y procesara los paquetes interceptados por el ESP.
+									<p>En el Loop del programa, lo que hacemos es simplemente cambiar cada cierto tiempo el canal de WiFi en el que estamos escuchando y esperar un momento para que se puedan captar paquetes antes de volver a cambiar.</p>
+									<p>Cada vez que se intercepta un paquete, se llama a la funcion "promisc_cb" la cual parsea la informacion recibida y dependiendo del tipo de paquete (si es proveniente de un BEACON o de un CLIENT) guarda la estructura correspondiente en un array.</p>
+									<p>Estos elementos contienen, entre otros datos, la direccion MAC del dispocitvo que generó el paquete, que es lo que nos interesa en este caso para poder identificar la cantidad de dispositivos que se encuentran en un area contando la cantidad de direciones MAC distintas encontradas.</p>
+									<p>También se verifica regularmente la antigüedad de los elementos guardados y si alguno excede un tiempo máximo desde la última detección, este elemento se considera fuera de rango y se elimina.</p>																		
 									<!-- <h3 class="major">Primera versión de código</h3>-->
 									<h3 class="major">20 de setiembre, 2021</h3>
 									<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>			
@@ -71,6 +76,22 @@
 									  </figure>		
 									<div>
 										<p></p>
+									</div>
+									<div id="wrapper-videos"> 
+										<p>En las siguientes imágenes se muestran los prototipos de prueba para los sensores de distancia utilizados en las puertas de subida y bajada del ómnibus. Para probar el funcionamiento de los sensores alcanza con conectarlos a 5V y verificar la detección de objetos.</p>							
+										<video id="video1" width="400" height="300" controls="controls" preload="none"> 
+											<source type="video/mp4" src="./files/proceso/proto-puertas-1.mp4" /> 											
+										</video>
+										<video id="video2" width="400" height="300" controls="controls" preload="none"> 
+											<source type="video/mp4" src="./files/proceso/proto-puertas-2.mp4" /> 
+										</video>
+										<div class="clear-videos"></div> 
+									</div>		
+									<div>
+										<p> <br> <!--nothing--> </p>
+										<p> En el primer video se muestra la prueba con el sensor de proximidad IR como viene de fábrica. De esta manera el sensor mide el reflejo de la señal y cuando detecta un objeto envía una señal en HIGH.</p>
+										<p> En el segundo video se hace la prueba con el sensor desarmado ubicando un LED frente a otro, de manera de que actúe como un sensor de barrera, enviando una señal en LOW cuando detecta un objeto. </p>
+										<p> Ambos son distintos métodos de detección y habiendo hecho estas pruebas decidimos utilizar el sensor original, dado que los dos funcionan correctamente y no hay diferencias notorias importantes. </p>																								
 									</div>							
 									<h3 class="major">30 de setiembre, 2021</h3>
 									<p>Nos reunimos a sacar medidas y planear el armado de la maqueta y los prototipos de prueba.</p>	
@@ -81,6 +102,9 @@
 									<center><iframe src="./files/proceso/prueba-co2-10-07.mp4" height="400px" width="650px" border="1px"></iframe></center>
 									<p></p>
 									<p>En el video se puede ver la prueba del sensor de CO2, mostrando la lectura en el monitor serial de Arduino y en el dashboard de Thingsboard. </p>
+									<h3 class="major">11 de octubre, 2021</h3>
+									<p>Se comienza el código para manejar los mensajes en la pantalla exterior del ómnibus, que en principio mostraría información sobre la línea y un mensaje indicando si está lleno o no. Investigamos sobre una librería para displays I2C, la cual sustituirá a la librería para displays por defecto para Arduino (LiquidCrystal). La librería utilizada se encuentra en <a href="https://github.com/fmalpartida/New-LiquidCrystal" style="color: rgb(11, 12, 14)">este repositorio.</a>
+									<p>Se debe tomar en cuenta que la dirección de estos displays se setea a nivel de hardware, en este caso, soldando las patas A0, A1 y A2. Por defecto la dirección es 0x27, siendo este último dígito el formado por el nivel alto de los registros mostrados por estas patas, por lo que la dirección varía entre 0x20 y 0x27. </p>									
 									<h3 class="major">13 y 14 de octubre, 2021</h3>						
 									<div class="">
 										<div class="inner">		
