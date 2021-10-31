@@ -11,7 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="shortcut icon" href="images/logo.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
+		<link rel="shortcut icon" href="images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
 	</head>
 	<body class="is-preload">
 
@@ -34,7 +34,8 @@
 								<li><a href="index.html">Home</a></li>
 								<li><a href="idea.html">Idea</a></li>
 								<li><a href="proceso.html">Proceso</a></li>
-								<li><a href="generic.html">Resultado</a></li>
+								<li><a href="thingsboard-doc.html">Documentación de ThingsBoard</a></li>
+								<li><a href="generic.html">Resultado</a></li>	
 							</ul>
 							<a href="#" class="close">Close</a>
 						</div>
@@ -107,33 +108,23 @@
 									<p></p>
 									<p>En el video se puede ver la prueba del sensor de CO2, mostrando la lectura en el monitor serial de Arduino y en el dashboard de Thingsboard. </p>
 									
-									<h3 class="major">11 de octubre, 2021</h3>
-									<p>Se comienza el código para manejar los mensajes en la pantalla exterior del ómnibus, que en principio mostraría información sobre la línea y un mensaje indicando si está lleno o no. Investigamos sobre una librería para displays I2C, la cual sustituirá a la librería para displays por defecto para Arduino (LiquidCrystal). La librería utilizada se encuentra en <a href="https://github.com/fmalpartida/New-LiquidCrystal" style="color: rgb(11, 12, 14)">este repositorio.</a>
-									<p>Se debe tomar en cuenta que la dirección de estos displays se setea a nivel de hardware, en este caso, soldando las patas A0, A1 y A2. Por defecto la dirección es 0x27, siendo este último dígito el formado por el nivel alto de los registros mostrados por estas patas, por lo que la dirección varía entre 0x20 y 0x27. </p>									
+								
 									
 									<h3 class="major">13 y 14 de octubre, 2021</h3>						
 									<div class="">
-										<div class="inner">		
-											<section class="features">
-												<article>
-													<a href="#" class="image"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" height="50%" width="50%" /></a>
-													<p>Se continúa con el proceso de construcción de la maqueta. En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus.</p>
-													<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>
-												</article>												
-												<article>
-													<p>
-														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													</p>
-													<a href="#" class="image"><img src="./files/proceso/tupper-10.13.jpeg" /></a>
-													<p>
-														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-													</p>																										
-													<a href="#" class="image"><img src="./files/proceso/balanza.png"/></a>
-												</article>																						
-											</section>		
+										<div class="inner">													
+											<p>Se continúa con el proceso de construcción de la maqueta. En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus.</p>
+											<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>																																			
 										</div>
 									</div>									
-									
+									<div class="box alt">
+										<div class="row gtr-uniform"><div class="col-12"><span class="image fit"><img src="./files/proceso/calibracion-celda.mp4" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="./files/proceso/tupper-10.13.jpeg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" /></span></div>
+											<div class="col-4"><span class="image fit"><img src="./files/proceso/balanza.png" alt="" /></span></div>
+										</div>
+									</div>	
+
 									<h3 class="major">18 de octubre, 2021</h3>
 									<p>Se automatiza el código de calibración de la celda de carga según un parámetro que será seteado desde ThingsBoard. La idea es desde ThingsBoard activar un modo "Debug" que corre la función de calibración de la celda de carga. Tenemos definida una variable que dice que el peso de calibración es, por ejemplo, 500g. 
 										Al entrar en modo calibración ponemos sobre la celda de carga un objeto que pesa 500g, el sensor lo lee y guarda el valor para tener de referencia para todas las demás medidas.</p>	
@@ -145,7 +136,17 @@
 									<p>Se corta el "techo" de la maqueta del ómnibus para facilitar el acceso al interior a la hora de hacer movimiento de pasajeros. La parte cortada se utilizará como tapa para cubrir el ómnibus cuando se hagan pruebas con el sensor de CO2. Se cortó también la caja que contiene al Servo que servirá de escotilla.</p>
 									<p>Probamos el código de calibración de la celda de carga junto con la celda ya en la confirguación que será usada en la versión final de la maqueta. Para eso utilizamos un objeto de peso conocido y comparamos la medida de nuestro programa con la de una balanza de cocina, como se muestra en el siguiente video.</p>
 									<center><iframe src="./files/proceso/calibracion-celda.mp4" height="400px" width="300px" border="1px"></iframe></center>
-									
+
+									<h3 class="major">25 de octubre, 2021</h3>
+									<p>Se comienza el diseño de un nuevo dashboard para set up, con la intención de hacer las configuraciones aparte y dejar el dasboard principal para la visualización de los datos en tiempo real y algún otro control esencial.</p>
+									<p>Seguimos implementando las rule chains para comenzar a probar el procesamiento de los datos del nivel de CO2 y el peso del ómnibus.</p>
+									<p>Para agregar más facilmente al IDE de Arduino las librerías usadas en la implementación del código en el ESP8266 agregamos dentro del repositorio del proyecto un .zip con las carpetas de las librerías externas que estamos usando (PubSubClient, ArduinoJson, etc). Cuando se inicia un IDE que no tenga instaladas las librerías, en lugar de usar el Libraries Manager, se descomprime el .zip y se copia su contenido en la carpeta "Documents/Arduino/Libraries" en Windows, o "Home/Arduino/Libraries" en Linux.</p>
+
+									<h3 class="major">28 de octubre, 2021</h3>
+									<p>Se investiga sobre APIs para verificar las direcciones MAC y distinguir entre las que corresponden a dispositivos conectados a la red y las que se mandan aleatoriamente cuando se  está desconectado.</p>
+									<p>Se hacen pruebas con el display que mostrará mensajes hacia afuera del ómnibus. Decidimos utilizar la librería LiquidCrystal_I2C, que se puede encontrar en el siguiente repositorio: <a href="https://github.com/johnrickman/LiquidCrystal_I2C" style="color: rgb(11, 12, 14)">johnrickman/LiquidCrystal_I2C</a>.</p>
+									<p>Se decide crear una nueva sección en la página web para documentar lo hecho en ThingsBoard, de manera de facilitar la reproducción del proceso. La sección puede accederse desde aquí: <a href="thingsboard-doc.html" style="color: rgb(11, 12, 14)">Documentación de Thingsboard</a>.</p>
+								
 																																																		
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
