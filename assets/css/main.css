@@ -3828,7 +3828,7 @@ input, select, textarea {
 				-webkit-flex-direction: row-reverse;
 				-ms-flex-direction: row-reverse;
 				flex-direction: row-reverse;
-				text-align: right;
+				text-align: justify; /*right majo*/
 			}
 
 			.wrapper.spotlight:nth-child(2n - 1) .image {
@@ -4209,7 +4209,7 @@ input, select, textarea {
 				-webkit-flex-direction: row-reverse;
 				-ms-flex-direction: row-reverse;
 				flex-direction: row-reverse;
-				text-align: right;
+				text-align: justify; /*right majo*/
 			}
 
 			.wrapper.spotlight:nth-child(2n - 1) .image {
@@ -4591,7 +4591,7 @@ input, select, textarea {
 					-webkit-flex-direction: row-reverse;
 					-ms-flex-direction: row-reverse;
 					flex-direction: row-reverse;
-					text-align: right;
+					text-align: justify; /*right majo/
 				}
 	
 				.wrapper2.spotlight:nth-child(2n - 1) .image {
