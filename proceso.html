@@ -148,6 +148,9 @@
 						<p>Se hacen pruebas con el display que mostrará mensajes hacia afuera del ómnibus. Decidimos utilizar la librería LiquidCrystal_I2C, que se puede encontrar en el siguiente repositorio: <a href="https://github.com/johnrickman/LiquidCrystal_I2C" style="color: rgb(11, 12, 14)">johnrickman/LiquidCrystal_I2C</a>.</p>
 						<p>Se decide crear una nueva sección en la página web para documentar lo hecho en ThingsBoard, de manera de facilitar la reproducción del proceso. La sección puede accederse desde aquí: <a href="thingsboard-doc.html" style="color: rgb(11, 12, 14)">Documentación de Thingsboard</a>.</p>
 					
+						<h3 class="major">01 de noviembre, 2021</h3>
+						<p>Se programa y testea la función que permite recibir comandos desde ThingsBoard en el ESP8266. En principio la prueba se hizo prendiendo y apagando desde el dashboard el LED de la placa.</p>
+						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porporque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
 																																															
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
