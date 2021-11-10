@@ -151,7 +151,14 @@
 						<h3 class="major">01 de noviembre, 2021</h3>
 						<p>Se programa y testea la función que permite recibir comandos desde ThingsBoard en el ESP8266. En principio la prueba se hizo prendiendo y apagando desde el dashboard el LED de la placa.</p>
 						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porporque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
-																																															
+						
+						<h3 class="major">04 de noviembre, 2021</h3>
+						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
+						<p>En la siguiente imagen podemos ver una captura del monitor serial de Arduino mostrando las direcciones MAC capturadas por el Sniffer:</p>
+						<img src="./files/proceso/macs-consola.png">
+						<img src="./files/proceso/macs-consola2.png">
+						<p>Para utilizar el código del Sniffer el ESP debe pasar de modo estación a modo promiscuo y para esto necesita apagar el WiFi. Esto quiere decir que mientras leemos las direcciones MAC no es posible mantener la comunicación con ThingsBoard. Por esta razón decidimos agregar al sistema un ESP8266-01, que será el encargado de manejar el Sniffer y el resto del código (lectura de sensores, actuadores, comunicación con Thingsboard) se mantendrá en el ESP8266. </p>
+						
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
 					</div>
