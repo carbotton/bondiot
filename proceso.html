@@ -112,7 +112,7 @@
 
 						<h3 class="major">05, 06 y 07 de octubre, 2021</h3>
 						<p>Durante esta semana avanzamos en la construcción de la maqueta haciendo la base y parte del cableado de componentes.</p><p> Previamente habian sido probados los componentes por separado, usando un código individual para cada uno. Esta semana comenzamos las pruebas utilizando el mismo código para todos, habiendo podido verificar el envío de medidas del sensor de CO2 via el ESP8266 hacia Thingsboard, comparando desde el Monitor Serial del IDE de Arduino la medida enviada con la mostrada en el Dashboard de Thingsboard.</p><p>Para poder programar el ESP8266 utilizando el IDE de Arduino seguimos las instrucciones mostradas en este tutorial: <a href="https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f" style="color: rgb(11, 12, 14)">Getting Started w/ NodeMCU ESP8266 on Arduino IDE.</a></p><p>Las librerías que se instalaron desde el IDE de Arduino son: PubSubClient de Nick O'Leary, para la comuniación con ThingsBoard y ArduinoJson. Para utilizar la libreria String se la puede importar directamente con la linea: <code>#include &lt;string.h&gt;</code> (notar que es "s" minúscula.</p>									
-						<center><iframe src="./files/proceso/prueba-co2-10-07.mp4" height="400px" width="650px" border="1px"></iframe></center>
+						<center><iframe src="./files/proceso/prueba-co2-10-07.mp4"></iframe></center>
 						<p></p>
 
 						<h3 class="major">13 y 14 de octubre, 2021</h3>													
@@ -120,8 +120,8 @@
 						<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. <br><br> Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>
 						<div class="box alt">
 							<div class="row gtr-uniform">
-								<div class="col-5"><span class="image fit"><img src="./files/proceso/tupper-10.13.jpeg" alt="" /></span></div>
-								<div class="col-5"><span class="image fit"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" /></span></div>
+								<div class="col-5"><span class="image fit"><a href="files/proceso/tupper-10.13.jpeg"><img src="./files/proceso/tupper-10.13.jpeg" alt="" /></a></span></div>
+								<div class="col-5"><span class="image fit"><a href="./files/proceso/proto-prueba-celda-10.14.jpg"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" /></a></span></div>
 							</div>
 						</div>
 						
@@ -137,6 +137,7 @@
 						<p>Se corta el "techo" de la maqueta del ómnibus para facilitar el acceso al interior a la hora de hacer movimiento de pasajeros. La parte cortada se utilizará como tapa para cubrir el ómnibus cuando se hagan pruebas con el sensor de CO2. Se cortó también la caja que contiene al Servo que servirá de escotilla.</p>
 						<p>Probamos el código de calibración de la celda de carga junto con la celda ya en la confirguación que será usada en la versión final de la maqueta. Para eso utilizamos un objeto de peso conocido y comparamos la medida de nuestro programa con la de una balanza de cocina, como se muestra en el siguiente video.</p>
 						<center><iframe src="./files/proceso/calibracion-celda.mp4" height="400px" width="300px" border="1px"></iframe></center>
+						<p> </p>
 
 						<h3 class="major">25 de octubre, 2021</h3>
 						<p>Se comienza el diseño de un nuevo dashboard para set up, con la intención de hacer las configuraciones aparte y dejar el dasboard principal para la visualización de los datos en tiempo real y algún otro control esencial.</p>
@@ -155,10 +156,21 @@
 						<h3 class="major">04 de noviembre, 2021</h3>
 						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
 						<p>En la siguiente imagen podemos ver una captura del monitor serial de Arduino mostrando las direcciones MAC capturadas por el Sniffer:</p>
-						<img src="./files/proceso/macs-consola.png">
-						<img src="./files/proceso/macs-consola2.png">
+						<center>
+							<img src="./files/proceso/macs-consola.png">
+							<img src="./files/proceso/macs-consola2.png">							
+						</center>
 						<p>Para utilizar el código del Sniffer el ESP debe pasar de modo estación a modo promiscuo y para esto necesita apagar el WiFi. Esto quiere decir que mientras leemos las direcciones MAC no es posible mantener la comunicación con ThingsBoard. Por esta razón decidimos agregar al sistema un ESP8266-01, que será el encargado de manejar el Sniffer y el resto del código (lectura de sensores, actuadores, comunicación con Thingsboard) se mantendrá en el ESP8266. </p>
 						
+						<h3 class="major">15 de noviembre, 2021</h3>
+						<p>Se escribe el código encargado de recibir la orden de abrir y cerrar la escotilla del ómnibus según el estado de un switch en el dashboard de Thingsboard. Se prueba con éxito el mover el servo, que abrirá la escotilla, mediante el uso del widget en el dashboard.</p>
+						<p>También se escribió el código que maneja la actualización de atributos desde Thingsboard para utilizar en el ESP para acciones como ser entrar en modo calibración para la celda de carga o el peso del objeto que se utilizará para dicha calibración. </p>
+						<p>Se hicieron los agujeros para las puertas del ómnibus y se trabaja en el cableado de los sensores.</p>
+						<center><img src="./files/proceso/tupper-11.15.jpeg" style="width:50%;height:40%"></center>
+						<p> </p>
+
+						<h3 class="major">18 de noviembre, 2021</h3>
+						<p>Se programa una función para encender los LEDs del cartel que indica la apertura de ventanas abordo del ómnibus. <br> El atributo que recibe el ESP maneja el encendido y apagado de los LEDs, y ese atributo es generado en Thingsboard mediante una Rule Chain. Esta Rule Chain compara el nivel de CO2 actual con el máximo nivel previamente definido y en caso de estar sobrepasado pone aviso mediante un atributo de alarma. <br> A su vez este atributo es también visualizado en el dashboard en forma de LED, tornándose de color rojo cuando se excede el máximo nivel de CO2.</p>
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
 					</div>
