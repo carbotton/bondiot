@@ -114,8 +114,7 @@
 								<div class="col-5"><span class="image fit"><a href="files/proceso/tupper-10.13.jpeg"><img src="./files/proceso/tupper-10.13.jpeg" alt="" /></a></span></div>
 								<div class="col-5"><span class="image fit"><a href="./files/proceso/proto-prueba-celda-10.14.jpg"><img src="./files/proceso/proto-prueba-celda-10.14.jpg" alt="" /></a></span></div>
 							</div>
-						</div>
-						
+						</div>						
 						
 						<h3 class="major">18 de octubre, 2021</h3>
 						<p>Se automatiza el código de calibración de la celda de carga según un parámetro que será seteado desde ThingsBoard. La idea es desde ThingsBoard activar un modo "Debug" que corre la función de calibración de la celda de carga. Tenemos definida una variable que dice que el peso de calibración es, por ejemplo, 500g. 
@@ -148,9 +147,10 @@
 						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
 						<p>En la siguiente imagen podemos ver una captura del monitor serial de Arduino mostrando las direcciones MAC capturadas por el Sniffer:</p>
 						<center>
-							<img src="./files/proceso/macs-consola.png">
-							<img src="./files/proceso/macs-consola2.png">							
+							<a href="./files/proceso/macs-consola.png"><img src="./files/proceso/macs-consola.png" width="70%"></a>
+							<a href="./files/proceso/macs-consola2.png"><img src="./files/proceso/macs-consola2.png" width="70%"></a>
 						</center>
+						<p></p>
 						<p>Para utilizar el código del Sniffer el ESP debe pasar de modo estación a modo promiscuo y para esto necesita apagar el WiFi. Esto quiere decir que mientras leemos las direcciones MAC no es posible mantener la comunicación con ThingsBoard. Por esta razón decidimos agregar al sistema un ESP8266-01, que será el encargado de manejar el Sniffer y el resto del código (lectura de sensores, actuadores, comunicación con Thingsboard) se mantendrá en el ESP8266. </p>
 						
 						<h3 class="major">15 de noviembre, 2021</h3>
