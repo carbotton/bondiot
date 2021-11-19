@@ -78,6 +78,7 @@
 
 						<h3 class="major">20 de setiembre, 2021</h3>
 						<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>			
+						
 						<h3 class="major">23 de setiembre, 2021</h3>
 						<p>Se probó la celda de carga junto con el módulo HX711 y el sensor MQ2 utilizando la primera versión de código obteniendo buenos resultados.</p>	
 						<figure>
@@ -107,7 +108,7 @@
 						<p></p>
 
 						<h3 class="major">13 y 14 de octubre, 2021</h3>													
-						<p><span class="image left"><img src="./files/proceso/balanza.png" alt="" /></span><br> Se continúa con el proceso de construcción de la maqueta.<br>En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus. <br><br></p>
+						<p><span class="image left"><a href="./files/proceso/balanza.png"><img src="./files/proceso/balanza.png" alt="" /></a></span><br> Se continúa con el proceso de construcción de la maqueta.<br>En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus. <br><br></p>
 						<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. <br><br> Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>
 						<div class="box alt">
 							<div class="row gtr-uniform">
@@ -141,27 +142,32 @@
 					
 						<h3 class="major">01 de noviembre, 2021</h3>
 						<p>Se programa y testea la función que permite recibir comandos desde ThingsBoard en el ESP8266. En principio la prueba se hizo prendiendo y apagando desde el dashboard el LED de la placa.</p>
-						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porporque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
+						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
 						
 						<h3 class="major">04 de noviembre, 2021</h3>
 						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
 						<p>En la siguiente imagen podemos ver una captura del monitor serial de Arduino mostrando las direcciones MAC capturadas por el Sniffer:</p>
 						<center>
-							<a href="./files/proceso/macs-consola.png"><img src="./files/proceso/macs-consola.png" width="70%"></a>
-							<a href="./files/proceso/macs-consola2.png"><img src="./files/proceso/macs-consola2.png" width="70%"></a>
+							<a href="./files/proceso/macs-consola.png"><img src="./files/proceso/macs-consola.png" width="75%"></a>
+							<a href="./files/proceso/macs-consola2.png"><img src="./files/proceso/macs-consola2.png" width="75%"></a>
 						</center>
-						<p></p>
+						<p><br></p>
 						<p>Para utilizar el código del Sniffer el ESP debe pasar de modo estación a modo promiscuo y para esto necesita apagar el WiFi. Esto quiere decir que mientras leemos las direcciones MAC no es posible mantener la comunicación con ThingsBoard. Por esta razón decidimos agregar al sistema un ESP8266-01, que será el encargado de manejar el Sniffer y el resto del código (lectura de sensores, actuadores, comunicación con Thingsboard) se mantendrá en el ESP8266. </p>
 						
 						<h3 class="major">15 de noviembre, 2021</h3>
 						<p>Se escribe el código encargado de recibir la orden de abrir y cerrar la escotilla del ómnibus según el estado de un switch en el dashboard de Thingsboard. Se prueba con éxito el mover el servo, que abrirá la escotilla, mediante el uso del widget en el dashboard.</p>
 						<p>También se escribió el código que maneja la actualización de atributos desde Thingsboard para utilizar en el ESP para acciones como ser entrar en modo calibración para la celda de carga o el peso del objeto que se utilizará para dicha calibración. </p>
 						<p>Se hicieron los agujeros para las puertas del ómnibus y se trabaja en el cableado de los sensores.</p>
-						<center><img src="./files/proceso/tupper-11.15.jpeg" style="width:50%;height:40%"></center>
+						<center><a href="./files/proceso/tupper-11.15.jpeg"><img src="./files/proceso/tupper-11.15.jpeg" style="width:50%;height:40%"></a></center>
 						<p> </p>
 
 						<h3 class="major">18 de noviembre, 2021</h3>
 						<p>Se programa una función para encender los LEDs del cartel que indica la apertura de ventanas abordo del ómnibus. <br> El atributo que recibe el ESP maneja el encendido y apagado de los LEDs, y ese atributo es generado en Thingsboard mediante una Rule Chain. Esta Rule Chain compara el nivel de CO2 actual con el máximo nivel previamente definido y en caso de estar sobrepasado pone aviso mediante un atributo de alarma. <br> A su vez este atributo es también visualizado en el dashboard en forma de LED, tornándose de color rojo cuando se excede el máximo nivel de CO2.</p>
+						<p>En los siguientes videos se puede ver la prueba de la alarma de CO2, el movimiento del servo para la escotilla y el prendido y apagado del built-in LED y otro LED.</p>
+						<center>
+							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" ></iframe>
+							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" ></iframe>
+						</center>
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
 					</div>
