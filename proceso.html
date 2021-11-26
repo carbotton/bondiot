@@ -143,6 +143,7 @@
 						<h3 class="major">01 de noviembre, 2021</h3>
 						<p>Se programa y testea la función que permite recibir comandos desde ThingsBoard en el ESP8266. En principio la prueba se hizo prendiendo y apagando desde el dashboard el LED de la placa.</p>
 						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
+						<p>Los pines usados para las interrupciones son declarados como INPUT_PULLUP para que siempre se encuentren en estado HIGH. Sin embargo, los pines usados parecen no tener estas resistencias de pull-up internas ya que se observaron inconsistencias a la hora de activar las interrupciones usando un botón. Esto de todas formas no es un problema en nuestro caso ya que los sensores usados tienen niveles bien definidos para sus dos estados posibles (salida HIGH o LOW pero nunca flotando) pero es un dato importante a tener en cuenta por si estos pines se dejan sin conectar por algun motivo.</p>
 						
 						<h3 class="major">04 de noviembre, 2021</h3>
 						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
@@ -168,6 +169,23 @@
 							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" ></iframe>
 							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" ></iframe>
 						</center>
+						<p> </p>
+
+						<h3 class="major">21 de noviembre, 2021</h3>
+						<p>Se prueba la comunicación serial entre el NodeMCU y el ESP8266-01.</p>
+						<p>Se comienzan pruebas de envío y recepción de direcciones MAC a ThingsBoard. En principio se crea una rule chain que consume la API <a href="https://macvendors.co/api/" style="color: rgb(11, 12, 14)">Mac Vendors</a> para decidir si las direcciones MAC recibidas corresponden a un dispositivo real o si son direcciones MAC aleatorias de las que envían los dispositivos cuando no están conectados.</p>
+
+						<h3 class="major">23 de noviembre, 2021</h3>
+						<p>Se implementa el ESP8266-01 como un dispositivo separado en ThingsBoard luego de experimentar problemas con la conexión fisica entre ESPs. Actualmente cada ESP actúa por separado, uno manejando las funciones de sensores y actuadores y el otro cumpliendo las funciones de sniffer de red, reportando por separado a ThingsBoard los primeros 6 dígitos de todas las direciones MAC encontradas.</p>
+
+						<h3 class="major">25 de noviembre, 2021</h3>
+						<p>Se sigue avanzando en la construcción de la maqueta.</p>
+						<p>Se crea una rule chain en ThingsBoard para interpretar los datos de la celda de carga que devuelve el peso actual del ómnibus y convertir esta información en cantidad de pasajeros.</p>
+						<p>En la librería PubSubClient se hace una modificación en PubSubClient.h agrandando la cantidad de bytes a enviar por MQTT, ya que teniendo en funcionamiento el sistema durante muchas horas enviando datos se alcanzaba el máximo permitido obteniéndose el siguiente error: "Not published. Please add #define MQTT_MAX_PACKET_SIZE 2048 at the beginning of PubSubClient.h file"</p>
+
+						<h3 class="major">26 de noviembre, 2021</h3>
+						<p>Se crea una rule chain que recibe los datos te los sensores en las puertas de subida y bajada del ómnibus y guarda la cantidad de pasajeros en un atributo en ThingsBoard.</p>
+
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
 					</div>
@@ -178,7 +196,7 @@
 		<!-- Footer -->
 		<section id="footer">
 			<div class="inner">
-				<p>&copy; All rights reserved. Designed using <a href="http://html5up.net">HTML5 UP templates.</a></p>
+				<p>&copy; All rights reserved. Designed using <a href="http://html5up.net">HTML5 UP templates.</a> Página web y contenido administrado por María José.</p>
 			</div>
 		</section>
 
