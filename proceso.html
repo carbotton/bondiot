@@ -184,7 +184,33 @@
 						<p>En la librería PubSubClient se hace una modificación en PubSubClient.h agrandando la cantidad de bytes a enviar por MQTT, ya que teniendo en funcionamiento el sistema durante muchas horas enviando datos se alcanzaba el máximo permitido obteniéndose el siguiente error: "Not published. Please add #define MQTT_MAX_PACKET_SIZE 2048 at the beginning of PubSubClient.h file"</p>
 
 						<h3 class="major">26 de noviembre, 2021</h3>
-						<p>Se crea una rule chain que recibe los datos te los sensores en las puertas de subida y bajada del ómnibus y guarda la cantidad de pasajeros en un atributo en ThingsBoard.</p>
+						<p>Se crea una rule chain que recibe los datos te los sensores en las puertas de subida y bajada del ómnibus y guarda la cantidad de pasajeros en un atributo en ThingsBoard. En el siguiente video se puede ver como va variando la telemetría en Thingsboard al pasar la mano por las puertas del ómnibus.</p>
+						<center>
+							<iframe src="./files/proceso/prueba-puertas.mp4" height="200px" width="300px" ></iframe>
+						</center>						
+
+						<h3 class="major">29 de noviembre, 2021</h3>
+						<p>Se soldaron todos los sensores y se ajustan agarres del techo del ómnibus y la escotilla. En el siguiente video podemos ver el prototipo de la escotilla y el estado actual de la maqueta.</p>
+						<center>
+							<iframe src="./files/proceso/escotilla-sola.mp4" height="200px" width="300px" ></iframe>
+							<a href="./files/proceso/tupper-11.30.jpeg"><img src="./files/proceso/tupper-11.30.jpeg" style="width:50%;height:40%"></a>
+						</center>
+						
+						<h3 class="major">01 de diciembre, 2021</h3>
+						<p>Nueva rule chain para conteo de macs que hay que probar. Esta rulechain recibe una señal de inicio de envio de macs, recibe las macs de a una, cada una en un mensaje mqtt distinto, y llama a otra rulechain que consulta la API de fabricantes de MAcs. Cuando recibe luego una señal de fin, toma la cantidad de macs verificadas hasta el momento como el numero de macs reales y lo guarda. Con esto se obtiene el numero de pasajeros segun la cantidad de MACs.</p>
+						<p>Se modifica el codigo del sniffer para que envie las MACs en el formato que espera la rulechain mencionada.</p>
+						<p>Avances en la maqueta: Se fija la escotilla al techo de la maqueta, se hace un agujero para el pasaje de el cable de alimentacion hacia el interior de la maqueta. Además se oloca termocontraible en los sensores de distancia y una superficie oscura del otro lado de la puerta para minimizar la interferencia causada por luces del ambiente.</p>
+
+						<h3 class="major">02 de diciembre, 2021</h3>
+						<p>Se cambia el modo de las interrupciones de las puertas de RISING a FALLING porque el sensor de la puerta trasera produce una señal HIGH con mucho ruido, lo que causaba que se dispararan muchas interrupciones juntas. Cambiando el modo a FALLING, las interrupciones se disparan cuando la señal pasa a ser LOW, la cual el sensor produce de manera mas limpia.</p>
+						<p>Se descubre que para el correcto reseteo de la placa NodeMCU, es necesario que el pin asignado al sensor de la puerta trasera este en LOW. Debido a que el estado por defecto del sensor es HIGH, es necesario mantener el sensor activo mientras se ejecuta un reseteo de la placa para que este sea exitoso.</p>
+
+						<h3 class="major">04 de diciembre, 2021</h3>
+						<p>Se agregan atributos al Dashboard para manejar lo que mostrará el display del ómnibus: número de línea y destino, y un mensaje para indicar si el ómnibus va lleno. También se implementa el código en el ESP para recibir estos cambios y reflejarlos en el display.</p>
+						<p>Se agrega un atributo, que se setea también desde el Dashboard, que indica cuál tiene que ser la mínima variación de peso para que se envíe telemetría de la celda de carga hacia Thingsboard, para evitar enviar actualizaciones permanentemente por variaciones insignificantes de peso.</p>
+						<p>La escotilla ya podía abrirse manualmente desde el Dashboard pero ahora se agrega la función de que cuando el nivel de CO2 alcanza el máximo, la escotilla se abre automáticamente. Una vez abierta de esta manera, la escotilla permanecerá abierta por más que el nivel de CO2 baje, para prevenir que vuelva a subir. Puede igual ser cerrada manualmente desde el Dashboard o desde el mismo ómnibus.</p>
+						<p>Nueva rule chain para prender el LED que avisa al chofer si se alcanzó el máximo de pasajeros a bordo.</p>
+
 
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
