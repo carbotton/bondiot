@@ -166,8 +166,8 @@
 						<p>Se programa una función para encender los LEDs del cartel que indica la apertura de ventanas abordo del ómnibus. <br> El atributo que recibe el ESP maneja el encendido y apagado de los LEDs, y ese atributo es generado en Thingsboard mediante una Rule Chain. Esta Rule Chain compara el nivel de CO2 actual con el máximo nivel previamente definido y en caso de estar sobrepasado pone aviso mediante un atributo de alarma. <br> A su vez este atributo es también visualizado en el dashboard en forma de LED, tornándose de color rojo cuando se excede el máximo nivel de CO2.</p>
 						<p>En los siguientes videos se puede ver la prueba de la alarma de CO2, el movimiento del servo para la escotilla y el prendido y apagado del built-in LED y otro LED.</p>
 						<center>
-							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" ></iframe>
-							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" ></iframe>
+							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" preload="none"></iframe>
+							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" preload="none"></iframe>
 						</center>
 						<p> </p>
 
@@ -186,13 +186,15 @@
 						<h3 class="major">26 de noviembre, 2021</h3>
 						<p>Se crea una rule chain que recibe los datos te los sensores en las puertas de subida y bajada del ómnibus y guarda la cantidad de pasajeros en un atributo en ThingsBoard. En el siguiente video se puede ver como va variando la telemetría en Thingsboard al pasar la mano por las puertas del ómnibus.</p>
 						<center>
-							<iframe src="./files/proceso/prueba-puertas.mp4" height="200px" width="300px" ></iframe>
+							<iframe src="./files/proceso/prueba-puertas.mp4" height="200px" width="300px" preload="none"></iframe>
 						</center>						
 
 						<h3 class="major">29 de noviembre, 2021</h3>
 						<p>Se soldaron todos los sensores y se ajustan agarres del techo del ómnibus y la escotilla. En el siguiente video podemos ver el prototipo de la escotilla y el estado actual de la maqueta.</p>
 						<center>
-							<iframe src="./files/proceso/escotilla-sola.mp4" height="200px" width="300px" ></iframe>
+							<iframe src="./files/proceso/escotilla-sola.mp4" height="200px" width="300px" preload="none" ></iframe>
+						</center>
+						<center>							
 							<a href="./files/proceso/tupper-11.30.jpeg"><img src="./files/proceso/tupper-11.30.jpeg" style="width:50%;height:40%"></a>
 						</center>
 						
@@ -211,6 +213,10 @@
 						<p>La escotilla ya podía abrirse manualmente desde el Dashboard pero ahora se agrega la función de que cuando el nivel de CO2 alcanza el máximo, la escotilla se abre automáticamente. Una vez abierta de esta manera, la escotilla permanecerá abierta por más que el nivel de CO2 baje, para prevenir que vuelva a subir. Puede igual ser cerrada manualmente desde el Dashboard o desde el mismo ómnibus.</p>
 						<p>Nueva rule chain para prender el LED que avisa al chofer si se alcanzó el máximo de pasajeros a bordo.</p>
 
+						<h3 class="major">05 de diciembre, 2021</h3>
+						<p> Se crea un dashboard de debug para ver los valores de la telemetría y los atributos todos en el mismo lugar.</p>
+						<p> Se modificó la base del ómnibus para que la celda de carga estuviera mejor ajustada, como puede verse en las imágenes de abajo. </p>
+						<center><a href="./files/proceso/celda_carga_nueva.jpeg"><img src="./files/proceso/celda_carga_nueva.jpeg" style="width:50%;height:40%"></a></center>						
 
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
