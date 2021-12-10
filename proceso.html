@@ -78,8 +78,6 @@
 
 						<h3 class="major">20 de setiembre, 2021</h3>
 						<p>Comenzamos la programación sobre el ESP8266 para la lectura de sensores y direcciones MAC. Además probamos la comunicación con Thingsboard usando la libreria de PubSubClient.</p>			
-						
-						<h3 class="major">23 de setiembre, 2021</h3>
 						<p>Se probó la celda de carga junto con el módulo HX711 y el sensor MQ2 utilizando la primera versión de código obteniendo buenos resultados.</p>	
 						<figure>
 							<center><img src="./files/investigacion/cableado-celda-carga.png" width="80%"/></center>
@@ -90,24 +88,22 @@
 						</div>	
 						<p>En los siguientes videos se muestran los prototipos de prueba para los sensores de distancia utilizados en las puertas de subida y bajada del ómnibus. Para probar el funcionamiento de los sensores alcanza con conectarlos a 5V y verificar la detección de objetos.</p>							
 						<p> En el primer video se muestra la prueba con el sensor de proximidad IR como viene de fábrica. De esta manera el sensor mide el reflejo de la señal y cuando detecta un objeto envía una señal en HIGH.</p>
-						<center><iframe src="./files/proceso/proto-puertas-1.mp4"></iframe></center>
+						<center><iframe src="./files/proceso/proto-puertas-1.mp4" controls></iframe></center>
 						<p> En el segundo video se hace la prueba con el sensor desarmado ubicando un LED frente a otro, de manera de que actúe como un sensor de barrera, enviando una señal en LOW cuando detecta un objeto. </p>
-						<center><iframe src="./files/proceso/proto-puertas-2.mp4"></iframe></center>						
+						<center><iframe src="./files/proceso/proto-puertas-2.mp4" controls></iframe></center>						
 						<p> Ambos son distintos métodos de detección y habiendo hecho estas pruebas decidimos utilizar el sensor original, dado que los dos funcionan correctamente y no hay diferencias notorias importantes. </p>																								
 												
 						<h3 class="major">30 de setiembre, 2021</h3>
 						<p>Nos reunimos a sacar medidas y planear el armado de la maqueta y los prototipos de prueba.</p>	
-						
-						<h3 class="major">04 de octubre, 2021</h3>
 						<p>Para darle un agregado al Dashboard de Thingsboard, se encontraron widgets que permiten generar gráficas a partir de un histórico de datos, que si bien no recolecta en su totalidad los datos medidos, puede llegar a mostrar información relevante en función de datos pasados.</p>
 						<p>En el video se puede ver la prueba del sensor de CO2, mostrando la lectura en el monitor serial de Arduino y en el dashboard de Thingsboard. </p>
 
-						<h3 class="major">05, 06 y 07 de octubre, 2021</h3>
+						<h3 class="major">04 de octubre, 2021</h3>
 						<p>Durante esta semana avanzamos en la construcción de la maqueta haciendo la base y parte del cableado de componentes.</p><p> Previamente habian sido probados los componentes por separado, usando un código individual para cada uno. Esta semana comenzamos las pruebas utilizando el mismo código para todos, habiendo podido verificar el envío de medidas del sensor de CO2 via el ESP8266 hacia Thingsboard, comparando desde el Monitor Serial del IDE de Arduino la medida enviada con la mostrada en el Dashboard de Thingsboard.</p><p>Para poder programar el ESP8266 utilizando el IDE de Arduino seguimos las instrucciones mostradas en este tutorial: <a href="https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f" style="color: rgb(11, 12, 14)">Getting Started w/ NodeMCU ESP8266 on Arduino IDE.</a></p><p>Las librerías que se instalaron desde el IDE de Arduino son: PubSubClient de Nick O'Leary, para la comuniación con ThingsBoard y ArduinoJson. Para utilizar la libreria String se la puede importar directamente con la linea: <code>#include &lt;string.h&gt;</code> (notar que es "s" minúscula.</p>									
-						<center><iframe src="./files/proceso/prueba-co2-10-07.mp4"></iframe></center>
+						<center><iframe src="./files/proceso/prueba-co2-10-07.mp4" controls></iframe></center>
 						<p></p>
 
-						<h3 class="major">13 y 14 de octubre, 2021</h3>													
+						<h3 class="major">06 de octubre, 2021</h3>													
 						<p><span class="image left"><a href="./files/proceso/balanza.png"><img src="./files/proceso/balanza.png" alt="" /></a></span><br> Se continúa con el proceso de construcción de la maqueta.<br>En las imágenes se puede ver lo que sería la base del ómnibus, a la que va conectada la celda de carga, y el ómnibus en sí mismo donde estarán el sensor de CO2, los sensores IR para las puertas y el display para la pantalla exterior del ómnibus. <br><br></p>
 						<p>Se prueba y corrige el código para tomar datos de la celda de carga en conjunto con la toma de datos del sensor de co2 y el resto del código de las MACs. <br><br> Se agrega un LED conectado al pin DT del HX711 para visualizar cuando toma medidas (LED prendido completamente) y cuando no está midiendo (LED parpadeando).</p>
 						<div class="box alt">
@@ -117,35 +113,35 @@
 							</div>
 						</div>						
 						
-						<h3 class="major">18 de octubre, 2021</h3>
+						<h3 class="major">10 de octubre, 2021</h3>
 						<p>Se automatiza el código de calibración de la celda de carga según un parámetro que será seteado desde ThingsBoard. La idea es desde ThingsBoard activar un modo "Debug" que corre la función de calibración de la celda de carga. Tenemos definida una variable que dice que el peso de calibración es, por ejemplo, 500g. 
 							Al entrar en modo calibración ponemos sobre la celda de carga un objeto que pesa 500g, el sensor lo lee y guarda el valor para tener de referencia para todas las demás medidas.</p>	
 						<p>Se considera la posibilidad de usar un regulador de 3.3V y se investiga sobre el consumo de los sensores.</p>	
 						<p>Se agrega al código del main un modo de WIFI_DEBUG de WiFi que permite ingresar la SSID y la PASSWORD de la red a través del monitor serial. Para esto es necesario poner el monitor serial en un baud-rate de 11500 y la terminación de linea como “No line ending”.</p>							
 						<p>Implementamos una rule chain propia en ThingsBoard, ésta consiste en recibir y filtrar un mensaje recibido por telemetría de un device, y en caso de ser este el sensor de CO2, consultar por su valor. Si éste superior al parámetro máximo de este device, prende una alarma, en caso contrario guarda la telemetría.</p>
 
-						<h3 class="major">20 y 21 de octubre, 2021</h3>
+						<h3 class="major">12 de octubre, 2021</h3>
 						<p>Se corta el "techo" de la maqueta del ómnibus para facilitar el acceso al interior a la hora de hacer movimiento de pasajeros. La parte cortada se utilizará como tapa para cubrir el ómnibus cuando se hagan pruebas con el sensor de CO2. Se cortó también la caja que contiene al Servo que servirá de escotilla.</p>
 						<p>Probamos el código de calibración de la celda de carga junto con la celda ya en la confirguación que será usada en la versión final de la maqueta. Para eso utilizamos un objeto de peso conocido y comparamos la medida de nuestro programa con la de una balanza de cocina, como se muestra en el siguiente video.</p>
-						<center><iframe src="./files/proceso/calibracion-celda.mp4" height="400px" width="300px" border="1px" preload="none"></iframe></center>
+						<center><iframe src="./files/proceso/calibracion-celda.mp4" height="400px" width="300px" border="1px" controls></iframe></center>
 						<p> </p>
 
-						<h3 class="major">25 de octubre, 2021</h3>
+						<h3 class="major">18 de octubre, 2021</h3>
 						<p>Se comienza el diseño de un nuevo dashboard para set up, con la intención de hacer las configuraciones aparte y dejar el dasboard principal para la visualización de los datos en tiempo real y algún otro control esencial.</p>
 						<p>Seguimos implementando las rule chains para comenzar a probar el procesamiento de los datos del nivel de CO2 y el peso del ómnibus.</p>
 						<p>Para agregar más facilmente al IDE de Arduino las librerías usadas en la implementación del código en el ESP8266 agregamos dentro del repositorio del proyecto un .zip con las carpetas de las librerías externas que estamos usando (PubSubClient, ArduinoJson, etc). Cuando se inicia un IDE que no tenga instaladas las librerías, en lugar de usar el Libraries Manager, se descomprime el .zip y se copia su contenido en la carpeta "Documents/Arduino/Libraries" en Windows, o "Home/Arduino/Libraries" en Linux.</p>
 
-						<h3 class="major">28 de octubre, 2021</h3>
+						<h3 class="major">20 de octubre, 2021</h3>
 						<p>Se investiga sobre APIs para verificar las direcciones MAC y distinguir entre las que corresponden a dispositivos conectados a la red y las que se mandan aleatoriamente cuando se  está desconectado.</p>
 						<p>Se hacen pruebas con el display que mostrará mensajes hacia afuera del ómnibus. Decidimos utilizar la librería LiquidCrystal_I2C, que se puede encontrar en el siguiente repositorio: <a href="https://github.com/johnrickman/LiquidCrystal_I2C" style="color: rgb(11, 12, 14)">johnrickman/LiquidCrystal_I2C</a>.</p>
 						<p>Se decide crear una nueva sección en la página web para documentar lo hecho en ThingsBoard, de manera de facilitar la reproducción del proceso. La sección puede accederse desde aquí: <a href="thingsboard-doc.html" style="color: rgb(11, 12, 14)">Documentación de Thingsboard</a>.</p>
 					
-						<h3 class="major">01 de noviembre, 2021</h3>
+						<h3 class="major">27 de octubre, 2021</h3>
 						<p>Se programa y testea la función que permite recibir comandos desde ThingsBoard en el ESP8266. En principio la prueba se hizo prendiendo y apagando desde el dashboard el LED de la placa.</p>
 						<p>Se prueba el código de las interrupciones utilizado para detectar subida y bajada de pasajeros con los sensores IR en las puertas del ómnibus. <br>Para que las interrupciones funcionen correctamente en el ESP8266, es necesario poner la función de interrupción en la memoria RAM, por lo que en la declaración de la función hay que poner “ICACHE_RAM_ATTR”. Ejemplo:	ICACHE_RAM_ATTR void miFuncionDeInterrupcion(). <br>Esto es necesario porque de lo contrario se produce un error en tiempo de ejecución que resetea el ESP.</p>
 						<p>Los pines usados para las interrupciones son declarados como INPUT_PULLUP para que siempre se encuentren en estado HIGH. Sin embargo, los pines usados parecen no tener estas resistencias de pull-up internas ya que se observaron inconsistencias a la hora de activar las interrupciones usando un botón. Esto de todas formas no es un problema en nuestro caso ya que los sensores usados tienen niveles bien definidos para sus dos estados posibles (salida HIGH o LOW pero nunca flotando) pero es un dato importante a tener en cuenta por si estos pines se dejan sin conectar por algun motivo.</p>
 						
-						<h3 class="major">04 de noviembre, 2021</h3>
+						<h3 class="major">28 de octubre, 2021</h3>
 						<p>Trabajamos en ThingsBoard utilizando el modo debug de los nodos en las Rule Chain para lograr armar una regla que prenda y apague un widget (que simula un LED) en el dashboard, según los niveles de CO2 recibidos.</p>
 						<p>En la siguiente imagen podemos ver una captura del monitor serial de Arduino mostrando las direcciones MAC capturadas por el Sniffer:</p>
 						<center>
@@ -155,65 +151,65 @@
 						<p><br></p>
 						<p>Para utilizar el código del Sniffer el ESP debe pasar de modo estación a modo promiscuo y para esto necesita apagar el WiFi. Esto quiere decir que mientras leemos las direcciones MAC no es posible mantener la comunicación con ThingsBoard. Por esta razón decidimos agregar al sistema un ESP8266-01, que será el encargado de manejar el Sniffer y el resto del código (lectura de sensores, actuadores, comunicación con Thingsboard) se mantendrá en el ESP8266. </p>
 						
-						<h3 class="major">15 de noviembre, 2021</h3>
+						<h3 class="major">31 de octubre, 2021</h3>
 						<p>Se escribe el código encargado de recibir la orden de abrir y cerrar la escotilla del ómnibus según el estado de un switch en el dashboard de Thingsboard. Se prueba con éxito el mover el servo, que abrirá la escotilla, mediante el uso del widget en el dashboard.</p>
 						<p>También se escribió el código que maneja la actualización de atributos desde Thingsboard para utilizar en el ESP para acciones como ser entrar en modo calibración para la celda de carga o el peso del objeto que se utilizará para dicha calibración. </p>
 						<p>Se hicieron los agujeros para las puertas del ómnibus y se trabaja en el cableado de los sensores.</p>
 						<center><a href="./files/proceso/tupper-11.15.jpeg"><img src="./files/proceso/tupper-11.15.jpeg" style="width:50%;height:40%"></a></center>
 						<p> </p>
 
-						<h3 class="major">18 de noviembre, 2021</h3>
+						<h3 class="major">02 de noviembre, 2021</h3>
 						<p>Se programa una función para encender los LEDs del cartel que indica la apertura de ventanas abordo del ómnibus. <br> El atributo que recibe el ESP maneja el encendido y apagado de los LEDs, y ese atributo es generado en Thingsboard mediante una Rule Chain. Esta Rule Chain compara el nivel de CO2 actual con el máximo nivel previamente definido y en caso de estar sobrepasado pone aviso mediante un atributo de alarma. <br> A su vez este atributo es también visualizado en el dashboard en forma de LED, tornándose de color rojo cuando se excede el máximo nivel de CO2.</p>
 						<p>En los siguientes videos se puede ver la prueba de la alarma de CO2, el movimiento del servo para la escotilla y el prendido y apagado del built-in LED y otro LED.</p>
 						<center>
-							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" preload="none"></iframe>
-							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" preload="none"></iframe>
+							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" controls></iframe>
+							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" controls></iframe>
 						</center>
 						<p> </p>
 
-						<h3 class="major">21 de noviembre, 2021</h3>
+						<h3 class="major">06 de noviembre, 2021</h3>
 						<p>Se prueba la comunicación serial entre el NodeMCU y el ESP8266-01.</p>
 						<p>Se comienzan pruebas de envío y recepción de direcciones MAC a ThingsBoard. En principio se crea una rule chain que consume la API <a href="https://macvendors.co/api/" style="color: rgb(11, 12, 14)">Mac Vendors</a> para decidir si las direcciones MAC recibidas corresponden a un dispositivo real o si son direcciones MAC aleatorias de las que envían los dispositivos cuando no están conectados.</p>
 
-						<h3 class="major">23 de noviembre, 2021</h3>
+						<h3 class="major">09 de noviembre, 2021</h3>
 						<p>Se implementa el ESP8266-01 como un dispositivo separado en ThingsBoard luego de experimentar problemas con la conexión fisica entre ESPs. Actualmente cada ESP actúa por separado, uno manejando las funciones de sensores y actuadores y el otro cumpliendo las funciones de sniffer de red, reportando por separado a ThingsBoard los primeros 6 dígitos de todas las direciones MAC encontradas.</p>
 
-						<h3 class="major">25 de noviembre, 2021</h3>
+						<h3 class="major">13 de noviembre, 2021</h3>
 						<p>Se sigue avanzando en la construcción de la maqueta.</p>
 						<p>Se crea una rule chain en ThingsBoard para interpretar los datos de la celda de carga que devuelve el peso actual del ómnibus y convertir esta información en cantidad de pasajeros.</p>
 						<p>En la librería PubSubClient se hace una modificación en PubSubClient.h agrandando la cantidad de bytes a enviar por MQTT, ya que teniendo en funcionamiento el sistema durante muchas horas enviando datos se alcanzaba el máximo permitido obteniéndose el siguiente error: "Not published. Please add #define MQTT_MAX_PACKET_SIZE 2048 at the beginning of PubSubClient.h file"</p>
 
-						<h3 class="major">26 de noviembre, 2021</h3>
+						<h3 class="major">14 de noviembre, 2021</h3>
 						<p>Se crea una rule chain que recibe los datos te los sensores en las puertas de subida y bajada del ómnibus y guarda la cantidad de pasajeros en un atributo en ThingsBoard. En el siguiente video se puede ver como va variando la telemetría en Thingsboard al pasar la mano por las puertas del ómnibus.</p>
 						<center>
-							<iframe src="./files/proceso/prueba-puertas.mp4" height="200px" width="300px" preload="none"></iframe>
+							<iframe src="./files/proceso/prueba-puertas.mp4" height="200px" width="300px" controls></iframe>
 						</center>						
 
-						<h3 class="major">29 de noviembre, 2021</h3>
+						<h3 class="major">17 de noviembre, 2021</h3>
 						<p>Se soldaron todos los sensores y se ajustan agarres del techo del ómnibus y la escotilla. En el siguiente video podemos ver el prototipo de la escotilla y el estado actual de la maqueta.</p>
 						<center>
-							<iframe src="./files/proceso/escotilla-sola.mp4" height="200px" width="300px" preload="none" ></iframe>
+							<iframe src="./files/proceso/escotilla-sola.mp4" height="200px" width="300px" controls></iframe>
 						</center>
 						<center>							
 							<a href="./files/proceso/tupper-11.30.jpeg"><img src="./files/proceso/tupper-11.30.jpeg" style="width:25%;height:15%"></a>
 						</center>
 						
-						<h3 class="major">01 de diciembre, 2021</h3>
+						<h3 class="major">18 de noviembre, 2021</h3>
 						<p>Nueva rule chain para conteo de macs que hay que probar. Esta rulechain recibe una señal de inicio de envio de macs, recibe las macs de a una, cada una en un mensaje mqtt distinto, y llama a otra rulechain que consulta la API de fabricantes de MAcs. Cuando recibe luego una señal de fin, toma la cantidad de macs verificadas hasta el momento como el numero de macs reales y lo guarda. Con esto se obtiene el numero de pasajeros segun la cantidad de MACs.</p>
 						<p>Se modifica el codigo del sniffer para que envie las MACs en el formato que espera la rulechain mencionada.</p>
 						<p>Avances en la maqueta: Se fija la escotilla al techo de la maqueta, se hace un agujero para el pasaje de el cable de alimentacion hacia el interior de la maqueta. Además se oloca termocontraible en los sensores de distancia y una superficie oscura del otro lado de la puerta para minimizar la interferencia causada por luces del ambiente.</p>
 
-						<h3 class="major">02 de diciembre, 2021</h3>
+						<h3 class="major">21 de noviembre, 2021</h3>
 						<p>Se cambia el modo de las interrupciones de las puertas de RISING a FALLING porque el sensor de la puerta trasera produce una señal HIGH con mucho ruido, lo que causaba que se dispararan muchas interrupciones juntas. Cambiando el modo a FALLING, las interrupciones se disparan cuando la señal pasa a ser LOW, la cual el sensor produce de manera mas limpia.</p>
 						<p>Se descubre que para el correcto reseteo de la placa NodeMCU, es necesario que el pin asignado al sensor de la puerta trasera este en LOW. Debido a que el estado por defecto del sensor es HIGH, es necesario mantener el sensor activo mientras se ejecuta un reseteo de la placa para que este sea exitoso.</p>
 
-						<h3 class="major">04 de diciembre, 2021</h3>
+						<h3 class="major">22 de noviembre, 2021</h3>
 						<p>Se agregan atributos al Dashboard para manejar lo que mostrará el display del ómnibus: número de línea y destino, y un mensaje para indicar si el ómnibus va lleno. También se implementa el código en el ESP para recibir estos cambios y reflejarlos en el display.</p>
 						<p>Se agrega un atributo, que se setea también desde el Dashboard, que indica cuál tiene que ser la mínima variación de peso para que se envíe telemetría de la celda de carga hacia Thingsboard, para evitar enviar actualizaciones permanentemente por variaciones insignificantes de peso.</p>
 						<p>La escotilla ya podía abrirse manualmente desde el Dashboard pero ahora se agrega la función de que cuando el nivel de CO2 alcanza el máximo, la escotilla se abre automáticamente. Una vez abierta de esta manera, la escotilla permanecerá abierta por más que el nivel de CO2 baje, para prevenir que vuelva a subir. Puede igual ser cerrada manualmente desde el Dashboard o desde el mismo ómnibus.</p>
 						<p>Nueva rule chain para prender el LED que avisa al chofer si se alcanzó el máximo de pasajeros a bordo.</p>
 
-						<h3 class="major">05 de diciembre, 2021</h3>
+						<h3 class="major">27 de noviembre, 2021</h3>
 						<p> Se crea un dashboard de debug para ver los valores de la telemetría y los atributos todos en el mismo lugar.</p>
 						<p> Se modificó la base del ómnibus para que la celda de carga estuviera mejor ajustada, como puede verse en las imágenes de abajo. </p>
 						<center><a href="./files/proceso/celda_carga_nueva.jpeg"><img src="./files/proceso/celda_carga_nueva.jpeg" style="width:50%;height:40%"></a></center>						
