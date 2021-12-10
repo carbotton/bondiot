@@ -119,42 +119,38 @@
 									<tr>
 										<td></td>
 										<td><a href="#rule_7">Doors rule</a></td>
-									</tr>
-									<tr>
-										<td>Widgets</td>
-										<td>Ante turpis integer aliquet porttitor.</td>
-									</tr>																		
+									</tr>																	
 								</tbody>
 							</table>
 						</div>
 												
 						<section>
 
-							<h2 id="dashboard_1">Default dashboard</h2>
+							<h2 id="dashboard_1" style="background:#2f3647; text-align:center">Default dashboard</h2>
 							<p>El default dashboard es el que se utilizará para mostrar datos en tiempo real y widgets de control, como ser el switch que abre o cierra la escotilla manualmente.</p>	
 							<p>El dashboard puede ser importado desde el repositorio del proyecto.</p>
 							<img src="./files/thingsboard/dash_default.png" style="width:60%;height:50%">
 							<p><br></p>
 
-							<h2 id="dashboard_2">Dashboard de Set up</h2>
+							<h2 id="dashboard_2" style="background:#2f3647; text-align:center">Dashboard de Set up</h2>
 							<p>Para la modificación de parámetros fijos como el peso estándar de un pasajero o el nivel máximo de CO2 permitido, se creó el dashboard de setup.</p>		
 							<p>El dashboard puede ser importado desde el repositorio del proyecto.</p>
 							<img src="./files/thingsboard/dash_setup.png" style="width:60%;height:50%">						
 							<p><br></p>
 
-							<h2 id="dashboard_3">Dashboard de Debug</h2>	
+							<h2 id="dashboard_3" style="background:#2f3647; text-align:center">Dashboard de Debug</h2>	
 							<p>Este dashboard fue creado para facilitar la detección de errores en el funcionamiento del sistema, ya que se pueden ver todos los atributos y telemetría de los dispositivos.</p>
 							<p>El dashboard puede ser importado desde el repositorio del proyecto.</p>
 							<img src="./files/thingsboard/dash_debug.png" style="width:60%;height:50%">						
 							<p><br></p>
 
-							<h2 id="device_1">Creación de Entity View y Alias</h2>
+							<h2 id="device_1" style="background:#2f3647; text-align:center">Creación de Entity View y Alias</h2>
 							<img src="./files/thingsboard/entityview.png" style="width:60%;height:50%" />
 							<img src="./files/thingsboard/entityview-conf.png" style="width:60%;height:50%" />
 							<p>El entity view es a veces utilizado para elegir de donde vienen los datos a mostrar en los widgets del dashboard. Notar que acá también hay que setear para que sea público.</p>	
 							<p>El alias se crea dentro del widget cuando se requiere, el nombre que se le dio para este proyecto es: BondIoT-ESP8266-AliasDevice pero podría variar sin problemas.</p>
 
-							<h2 id="device_2">Creación de Device y Device profile</h2>
+							<h2 id="device_2" style="background:#2f3647; text-align:center">Creación de Device y Device profile</h2>
 							<img src="./files/thingsboard/device.png" style="width:60%;height:50%" />
 							<img src="./files/thingsboard/device-att-s.png" style="width:60%;height:50%" />
 							<p>
@@ -191,16 +187,16 @@
 								El perfil del device en este caso lo dejamos en el default, sin definir nada en particular.
 							</p>
 
-							<h2>Rule chains</h2>
+							<h2 style="background:#2f3647; text-align:center">Rule chains</h2>
 
-							<h3 id="rule_1">Root rule</h4>
+							<h3 id="rule_1" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Root rule</h4>
 							<p>Nombre de la regla: BondIoT-ESP8266-RootRule</p>
 							<p>Esta rule chain puede ser importada del repositorio en Github.</p>
 							<p>Esta es la rule chain que maneja los llamados a todas las demás rule chains del sistema.</p>
 							<img src="./files/thingsboard/rule_root.png" style="width:60%;height:50%" />
 							<p><br></p>
 
-							<h3 id="rule_2">CO2 rule</h4>
+							<h3 id="rule_2" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">CO2 rule</h4>
 							<p>Nombre de la rule chain: BondIoT-ESP8266-C02Thresh</p>
 							<p>Esta rule chain puede ser importada del repositorio en Github.</p>
 							<p>Flujo:</p>
@@ -213,7 +209,7 @@
 							<img src="./files/thingsboard/rule_co2.png" style="width:60%;height:50%" />
 							<p><br></p>
 
-							<h3 id="rule_3">Load cell rule</h4>
+							<h3 id="rule_3" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Load cell rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Passengers_by_weight</p>
 							<p>Esta rule chain puede ser importada del repositorio en Github.</p>
 							<p>Flujo:</p>
@@ -225,13 +221,13 @@
 							<img src="./files/thingsboard/rule_loadcell.png" style="width:60%;height:50%" />
 							<p><br></p>							
 
-							<h3 id="rule_4">MAC address rule</h4>
+							<h3 id="rule_4" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">MAC address rule</h4>
 							<p>Nombre de la rulechain: </p>
 
-							<h3 id="rule_5">Total passengers rule</h4>
+							<h3 id="rule_5" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Total passengers rule</h4>
 							<p>Nombre de la rulechain: </p>	
 
-							<h3 id="rule_6">Full bus rule</h4>
+							<h3 id="rule_6" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Full bus rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Notify_full_bus</p>	
 							<p>Esta rule chain puede ser importada del repositorio en Github.</p>
 							<p>Flujo:</p>
@@ -243,7 +239,7 @@
 							<img src="./files/thingsboard/rule_fullbus.png" style="width:60%;height:50%" />
 							<p><br></p>								
 
-							<h3 id="rule_7">Doors rule</h4>
+							<h3 id="rule_7" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Doors rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Passengers_Doors</p>
 
 						</section>
