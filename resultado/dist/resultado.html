@@ -51,7 +51,8 @@ h2.title {  /*majo*/
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Lucida Console, serif; 
-    font-size:40px;      
+    font-size:40px; 
+    text-align: center;     
 }
 
 ul {
@@ -82,6 +83,32 @@ li a:hover:not(.active) {
   background-color: #2b3343;
 }
 
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+th, td {
+  text-align: center;
+  padding: 16px;
+}
+
+th:first-child, td:first-child {
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #99B8D9;
+}
+
+thead{
+  background-color: #99B8D9;
+}
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
   .column {
@@ -111,13 +138,13 @@ li a:hover:not(.active) {
 <body>
 <ul>
   <li><a class="active" href="../../index.html">Home</a></li>
-  <li><a href="../../idea.html">Idea</a></li>
+<!--  <li><a href="../../idea.html">Idea</a></li>
   <li><a href="../../proceso.html">Proceso</a></li>
-  <li><a href="../../thingsboard-doc.html">Thingsboard</a></li>
+  <li><a href="../../thingsboard-doc.html">Thingsboard</a></li>-->
 </ul>
 <!-- Header -->
 <div class="header">
-  <h1 class="title">Proyecto terminado</h1>
+  <h1 class="title">El resultado</h1>
   <p>Las siguientes imágenes y videos muestran el proyecto finalizado. Además se puede ver la tabla de materiales que detalla la función de cada uno de ellos.</p>
 </div>
 
@@ -161,7 +188,7 @@ li a:hover:not(.active) {
 
 <div>                 
   <h2 id="materiales" class="title">Materiales utilizados</h2>
-      <table>
+      <table class="center">
         <thead>
           <tr>
             <th>Material</th>
@@ -224,7 +251,6 @@ li a:hover:not(.active) {
             <td>Acondicionamiento para la celda de carga</td>
             <td><a href="https://www.electronica.uy/robotica/sensores/celda-de-carga-50kg-7539-7540-7541-detalle.html">Eneka</a></td>
           </tr>                               
-          <tr>
           <tr>
             <td>LEDs</td>
             <td>7</td>
