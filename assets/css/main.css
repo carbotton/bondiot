@@ -257,6 +257,13 @@ input, select, textarea {
 		letter-spacing: 0.1em;
 		margin: 0 0 1em 0;
 	}
+
+	h2.title {	/*majo*/
+	    background: -webkit-linear-gradient(#fff, #4c956c);
+	    -webkit-background-clip: text;
+	    -webkit-text-fill-color: transparent;
+	    font-family: Lucida Console, serif;   		
+	}
 	
 	h1, h3, h4, h5, h6 {
 		color: #ffffff;
