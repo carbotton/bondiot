@@ -1,169 +1,265 @@
-	<!DOCTYPE HTML>
-	<!--
-		Solid State by HTML5 UP
-		html5up.net | @ajlkn
-		Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-	-->
-	<html>
-		<head>
-			<title>BondIoT</title>
-			<meta charset="utf-8" />
-			<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-			<link rel="stylesheet" href="./style.css">
-			<noscript>
-				<link rel="stylesheet" href="assets/css/noscript.css" />
-			</noscript>
-			<link rel="shortcut icon" href="../../images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-		</head>
-		<body class="is-preload">
+body {
+  margin: 0;
+  font-family: serif, sans-serif, Arial;
+  background-color: #C6D0F4;
+}
 
+.header {
+  text-align: center;
+  padding: 32px;
+}
 
-		        <div class="container">
-		            <nav>
-		                <ul>
-		                    <li class="current"><a href="../../index.html">Home</a></li>
-		                    <li class="current"><a href="#materiales">Materiales</a></li>
-		                  <li class="current"><a href="#demos">Demos</a></li>           
-		                </ul>
-		            </nav>
-		            <div id="projects">
-		                <br><br><br>
-		                <h1 class="heading">Resultado final</h1>
-		                <br><br><br>
-		                <ul id="gallery">
-		                    <li class="design"><a href="#"><img src="../../images/iot.png"></a></li>
-		                    <li class="apps"><a href="#"><img src="https://source.unsplash.com/y1yQQmozTBw/700x700"></a></li>
-		                    <li class="back-end"><a href="#"><img src="https://source.unsplash.com/b18TRXc8UPQ/700x700"></a></li>
-		                    <li class="apps design"><a href="#"><img src="https://source.unsplash.com/klRB1BB9pV8/700x700"></a></li>
-		                    <li class="front-end"><a href="#"><img src="https://source.unsplash.com/y1yQQmozTBw/700x700"></a></li>
-		                    <li class="front-end design"><a href="#"><img src="https://source.unsplash.com/1vwwZ-BmmrE/700x700"></a></li>
-		                    <li class="apps"><a href="#"><img src="https://source.unsplash.com/WLOCr03nGr0/700x700"></a></li>
-		                    <li class="back-end"><a href="#"><img src="https://source.unsplash.com/iOykDIkZLQw/700x700"></a></li>
-		                </ul>
-		                </nav>
-		            </div>
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
 
-		            <div id="materiales">
-		            	<p><br><br><br></p>		                
-		                <h1>Materiales utilizados</h1>
-							<table>
-								<thead>
-									<tr>
-										<th>Material</th>
-										<th>Cantidad</th>
-										<th>Función</th>
-										<th>Dónde conseguirlo</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Motor servo</td>
-										<td>1</td>
-										<td>Control de la escotilla</td>
-										<td><a href="resultado/src/index.html">Eneka</a></td>
-									</tr>
-									<tr>
-										<td>Arduino detector de humo MQ2</td>
-										<td>1</td>
-										<td>Sensor de CO2</td>
-										<td><a href="http://www.fabletybertoni.com/product.php?id_product=100093">Fablet y Bertoni</a></td>
-									</tr>
-									<tr>
-										<td>Impreso copper chico</td>
-										<td>1</td>
-										<td>Para soldar los componentes</td>
-										<td><a href="https://www.electronica.uy/componentes/impreso-para-prototipos-arduino-7449-7515-7516-7517-detalle.html">Eneka</a></td>
-									</tr>									
-									<tr>
-										<td>ESP8266</td>
-										<td>1</td>
-										<td>En este dispositivo se cargó toda la lógica de actuadores y lectura de sensores, además de la comunicación con Thingsboard.</td>
-										<td><a href="https://www.electronica.uy/robotica/modulos-comunicacion/m%C3%B3dulo-nodemcu-v3-esp8266-wifi-detalle.html">Eneka</a></td>
-									</tr>
-									<tr>
-										<td>Tupper</td>
-										<td>1</td>
-										<td>Contenedor para el proyecto que hace las veces de ómnibus.</td>
-										<td>-</td>
-									</tr>									
-									<tr>
-										<td>Sensor de distancia infrarrojo</td>
-										<td>2</td>
-										<td>Son los utilizados para detectar subida y bajada de pasajeros en las puertas del ómnibus.</td>
-										<td><a href="https://www.electronica.uy/robotica/sensores/optico/m%C3%B3dulo-sensor-de-distancias-hc-sr04-7391-7538-detalle.html">Eneka</a></td>
-									<tr>
-										<td>Fuente de 5V 3A microUSB</td>
-										<td>1</td>
-										<td>Alimentación del sistema.</td>
-										<td><a href="https://www.electronica.uy/instrumentos/fuentes-de-alimentacion/fuente-conmutada-220v-5v-3a-salida-microusb-detalle.html">Eneka</a></td>
-									</tr>
-									<tr>
-										<td>Celda de carga de 5Kg</td>
-										<td>1</td>
-										<td>Para medir el peso del ómnibus.</td>
-										<td><a href="https://www.electronica.uy/robotica/sensores/celda-de-carga-50kg-7539-7540-detalle.html">Eneka</a></td>
-									</tr>	
-									<tr>
-										<td>HX711</td>
-										<td>1</td>
-										<td>Acondicionamiento para la celda de carga</td>
-										<td><a href="https://www.electronica.uy/robotica/sensores/celda-de-carga-50kg-7539-7540-7541-detalle.html">Eneka</a></td>
-									</tr>																
-									<tr>
-									<tr>
-										<td>LEDs</td>
-										<td>7</td>
-										<td>Para el aviso al chofer de ómnibus lleno y para encender el cartel que indica abrir las ventanas.</td>
-										<td>Eneka</a></td>
-									</tr>
-									<tr>
-										<td>Display + Módulo interfaz serial I2C</td>
-										<td>1</td>
-										<td>Para simular la pantalla exterior del ómmnibus que indica número y destino.</td>
-										<td><a href="https://www.electronica.uy/componentes/optoelectronica/displays/lcd-16x2-caracteres-azul-paralelo-7442-detalle.html">Eneka</a></td>
-									</tr>	
-									<tr>
-										<td>ESP8266-01</td>
-										<td>1</td>
-										<td>Este dispositivo fue utilizado como Sniffer de direcciones MAC. Se comunica con Thingsboard.</td>
-										<td><a href="">Eneka</a></td>										
-									</tr>
-									<tr>
-										<td>Regulador de tensión</td>
-										<td>1</td>
-										<td></td>
-										<td><a href="">Eneka</a></td>										
-									</tr>
-								</tbody>
-							</table>		                
-		            </div>
-		            <p><br><br><br></p>	
-		            <p><br><br><br></p>	
-		            <p><br><br><br></p>	
-					<p>&copy; All rights reserved. Designed using <a href="http://html5up.net" style="color:gray">HTML5 UP templates.</a>  Página web y contenido administrado por María José. <a href="autoria.html" style="color:gray">Ver declaración de autoría.</a></p>		
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
 
-		            <!-- modal gallery -->
-		            <div class="gallery">
-		                <a class="close" href="#">
-		                    <i>
-		                    <span class="bar"></span>
-		                    <span class="bar"></span>
-		                    </i>
-		                </a>
-		                <img src="">
-		            </div>
-		        </div>
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
 
-				</div>
+h1.title {  /*majo*/
+    background: -webkit-linear-gradient(#4c5c96, #2a3141);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Lucida Console, serif; 
+    font-size: 70px;      
+}
 
-			<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/jquery.scrollex.min.js"></script>
-				<script src="assets/js/browser.min.js"></script>
-				<script src="assets/js/breakpoints.min.js"></script>
-				<script src="assets/js/util.js"></script>
-				<script src="assets/js/main.js"></script>
+h2.title {  /*majo*/
+    background: -webkit-linear-gradient(#4c5c96, #2a3141);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Lucida Console, serif; 
+    font-size:40px;      
+}
 
-		</body>
-	</html>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4c5c96;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #2b3343;
+}
+
+.active {
+  background-color: #2b3343;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+
+<head>
+  <title>BondIoT</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="shortcut icon" href="../../images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
+</head>
+
+<body>
+<ul>
+  <li><a class="active" href="../../index.html">Home</a></li>
+  <li><a href="../../idea.html">Idea</a></li>
+  <li><a href="../../proceso.html">Proceso</a></li>
+  <li><a href="../../thingsboard-doc.html">Thingsboard</a></li>
+</ul>
+<!-- Header -->
+<div class="header">
+  <h1 class="title">Proyecto terminado</h1>
+  <p>Las siguientes imágenes y videos muestran el proyecto finalizado. Además se puede ver la tabla de materiales que detalla la función de cada uno de ellos.</p>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="../../images/bg.jpg" style="width:100%">
+    <img src="../../images/iot.png" style="width:100%">
+    <img src="../../images/pic01.jpg" style="width:100%">
+    <img src="../../images/pic02.jpg" style="width:100%">
+    <img src="../../images/poster.png" style="width:100%">
+    <img src="/w3images/mist.jpg" style="width:100%">
+    <img src="/w3images/paris.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="../../images/logo-original.png" style="width:100%">
+    <img src="../../files/proceso/celda_carga_nueva.jpeg" style="width:100%">
+    <iframe src="../../files/proceso/escotilla-sola.mp4" width="100%" controls></iframe>
+    <img src="../../images/pic02.jpg" style="width:100%">
+    <img src="../../images/poster.png" style="width:100%">
+    <img src="/w3images/underwater.jpg" style="width:100%">
+  </div>  
+  <div class="column">
+    <img src="/w3images/wedding.jpg" style="width:100%">
+    <img src="/w3images/rocks.jpg" style="width:100%">
+    <img src="../../images/pic02.jpg" style="width:100%">
+    <img src="../../images/poster.png" style="width:100%">
+    <img src="/w3images/nature.jpg" style="width:100%">
+    <img src="/w3images/mist.jpg" style="width:100%">
+    <img src="/w3images/paris.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="/w3images/underwater.jpg" style="width:100%">
+    <img src="/w3images/ocean.jpg" style="width:100%">
+    <img src="/w3images/wedding.jpg" style="width:100%">
+    <img src="/w3images/mountainskies.jpg" style="width:100%">
+    <img src="/w3images/rocks.jpg" style="width:100%">
+    <img src="/w3images/underwater.jpg" style="width:100%">
+  </div>
+</div>
+
+<div>                 
+  <h2 id="materiales" class="title">Materiales utilizados</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Cantidad</th>
+            <th>Función</th>
+            <th>Dónde conseguirlo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Motor servo</td>
+            <td>1</td>
+            <td>Control de la escotilla</td>
+            <td><a href="resultado/src/index.html">Eneka</a></td>
+          </tr>
+          <tr>
+            <td>Arduino detector de humo MQ2</td>
+            <td>1</td>
+            <td>Sensor de CO2</td>
+            <td><a href="http://www.fabletybertoni.com/product.php?id_product=100093">Fablet y Bertoni</a></td>
+          </tr>
+          <tr>
+            <td>Impreso copper chico</td>
+            <td>1</td>
+            <td>Para soldar los componentes</td>
+            <td><a href="https://www.electronica.uy/componentes/impreso-para-prototipos-arduino-7449-7515-7516-7517-detalle.html">Eneka</a></td>
+          </tr>                 
+          <tr>
+            <td>ESP8266</td>
+            <td>1</td>
+            <td>En este dispositivo se cargó toda la lógica de actuadores y lectura de sensores, además de la comunicación con Thingsboard.</td>
+            <td><a href="https://www.electronica.uy/robotica/modulos-comunicacion/m%C3%B3dulo-nodemcu-v3-esp8266-wifi-detalle.html">Eneka</a></td>
+          </tr>
+          <tr>
+            <td>Tupper</td>
+            <td>1</td>
+            <td>Contenedor para el proyecto que hace las veces de ómnibus.</td>
+            <td>-</td>
+          </tr>                 
+          <tr>
+            <td>Sensor de distancia infrarrojo</td>
+            <td>2</td>
+            <td>Son los utilizados para detectar subida y bajada de pasajeros en las puertas del ómnibus.</td>
+            <td><a href="https://www.electronica.uy/robotica/sensores/optico/m%C3%B3dulo-sensor-de-distancias-hc-sr04-7391-7538-detalle.html">Eneka</a></td>
+          <tr>
+            <td>Fuente de 5V 3A microUSB</td>
+            <td>1</td>
+            <td>Alimentación del sistema.</td>
+            <td><a href="https://www.electronica.uy/instrumentos/fuentes-de-alimentacion/fuente-conmutada-220v-5v-3a-salida-microusb-detalle.html">Eneka</a></td>
+          </tr>
+          <tr>
+            <td>Celda de carga de 5Kg</td>
+            <td>1</td>
+            <td>Para medir el peso del ómnibus.</td>
+            <td><a href="https://www.electronica.uy/robotica/sensores/celda-de-carga-50kg-7539-7540-detalle.html">Eneka</a></td>
+          </tr> 
+          <tr>
+            <td>HX711</td>
+            <td>1</td>
+            <td>Acondicionamiento para la celda de carga</td>
+            <td><a href="https://www.electronica.uy/robotica/sensores/celda-de-carga-50kg-7539-7540-7541-detalle.html">Eneka</a></td>
+          </tr>                               
+          <tr>
+          <tr>
+            <td>LEDs</td>
+            <td>7</td>
+            <td>Para el aviso al chofer de ómnibus lleno y para encender el cartel que indica abrir las ventanas.</td>
+            <td>Eneka</a></td>
+          </tr>
+          <tr>
+            <td>Display + Módulo interfaz serial I2C</td>
+            <td>1</td>
+            <td>Para simular la pantalla exterior del ómmnibus que indica número y destino.</td>
+            <td><a href="https://www.electronica.uy/componentes/optoelectronica/displays/lcd-16x2-caracteres-azul-paralelo-7442-detalle.html">Eneka</a></td>
+          </tr> 
+          <tr>
+            <td>ESP8266-01</td>
+            <td>1</td>
+            <td>Este dispositivo fue utilizado como Sniffer de direcciones MAC. Se comunica con Thingsboard.</td>
+            <td><a href="">Eneka</a></td>                   
+          </tr>
+          <tr>
+            <td>Regulador de tensión</td>
+            <td>1</td>
+            <td></td>
+            <td><a href="">Eneka</a></td>                   
+          </tr>
+        </tbody>
+      </table>                    
+</div>
+<p><br><br></p>
+<p><br><br></p>
+</body>
+
+<div style="background-color:#2a3242">
+<p><br></p>
+<p style="color:#aab2cd">&copy; All rights reserved. Designed using <a href="http://html5up.net" style="color:gray">HTML5 UP templates.</a>  Página web y contenido administrado por María José. <a href="autoria.html" style="color:gray">Ver declaración de autoría.</a></p>
+<br><br>
+</div>
+
+</html>
