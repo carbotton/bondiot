@@ -139,7 +139,7 @@ thead{
   <title>Resultado - BondIoT</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="shortcut icon" href="../../images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
+  <link rel="shortcut icon" href="images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
 </head>
 
 <body>
@@ -158,14 +158,14 @@ thead{
 <!-- Photo Grid -->
 <div class="row"> 
   <div class="column">
-    <img src="assets_res/bus_celda.jpeg" style="width:100%">
+    <img src="assets_res/bus_adentro.jpeg" style="width:100%">
     <video id="myVideo" width="100%">
-      <source src="assets_res/hatch_con_y_sin_alarma.mp4" type="video/mp4">
+      <source src="assets_res/co2_cambiomaxmanual.mp4" type="video/mp4">
     </video>
     <img src="assets_res/dashboard1.png" style="width:100%">
   </div>
   <div class="column">
-    <img src="assets_res/bus_adentro.jpeg" style="width:100%">
+    <img src="assets_res/bus_celda.jpeg" style="width:100%">
     <video id="myVideo1" width="100%">
       <source src="assets_res/doors_prueba.mp4" type="video/mp4">
     </video>    
@@ -174,36 +174,32 @@ thead{
   <div class="column">
     <img src="assets_res/bus_celda.jpeg" style="width:100%">
     <video id="myVideo2" width="100%">
-      <source src="assets_res/co2_cambiomaxmanual.mp4" type="video/mp4">
+      <source src="assets_res/hatch_con_y_sin_alarma.mp4" type="video/mp4">
     </video>      
     <img src="assets_res/dashboard3.png" style="width:100%">
   </div>
   <div class="column">
-    <img src="images/poster.png" style="width:100%; height:100%">
+    <img src="images/poster.png" style="width:100%; height:99%">
   </div>
 </div>
 
 <div class="row"> 
-  <div class="column">
-    <img src="assets_res/" style="width:100%">    
+  <div class="column">    
     <video id="myVideo3" width="100%">
-      <source src="assets_res/" type="video/mp4">
+      <source src="assets_res/loadcell_calibracion.mp4" type="video/mp4">
     </video>  
   </div>
-  <div class="column">
-    <img src="assets_res/" style="width:100%">    
+  <div class="column">   
     <video id="myVideo4" width="100%">
-      <source src="assets_res/" type="video/mp4">
+      <source src="assets_res/macs.mp4" type="video/mp4">
     </video>
   </div>  
-  <div class="column">
-    <img src="assets_res/" style="width:100%">    
+  <div class="column">   
     <video id="myVideo5" width="100%">
       <source src="assets_res/" type="video/mp4">
     </video>
   </div>
-  <div class="column">
-    <img src="assets_res/" style="width:100%">    
+  <div class="column">    
     <video id="myVideo6" width="100%">
       <source src="assets_res/" type="video/mp4">
     </video>
@@ -319,6 +315,14 @@ thead{
     x.autoplay = true;
     x.loop = true;
     x.load(); 
+    var x = document.getElementById("myVideo3");
+    x.autoplay = true;
+    x.loop = true;
+    x.load();     
+    var x = document.getElementById("myVideo4");
+    x.autoplay = true;
+    x.loop = true;
+    x.load();     
   </script> 
   </body>
 
