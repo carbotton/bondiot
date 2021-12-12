@@ -232,6 +232,19 @@
 						<h3 class="major">07 al 12 de diciembre, 2021</h3>
 						<p>Se utilizó esta última semana para hacer ajustes estéticos en la maqueta y los dashboards, así como para hacer nuevas pruebas.</p>
 						<p> En la sección <a href="resultado/resultado.html" style="color: rgb(11, 12, 14)">Resultado</a> se pueden ver imágenes y videos del sistema funcionando. Muchos de los videos son parte del registro del testing final para poder mostrar un panorama completo del proyecto.</p>
+						<h4> Testeo del producto final:</h4>
+						<p> Una vez terminado el sistema se comprobó que todos los componentes funcionaran correctamente siguiendo con estas pruebas:
+						<ul>
+							<li>Incremento de la cantidad de pasajeros según flujo en las puertas de subida y bajada: la puerta de adelante incrementa la cantidad de pasajeros, la de atrás la disminuye y nunca se alcanza un número de pasajeros menor a 0.</li>
+							<li>Incremento de la cantidad de pasajeros según lectura de direcciones MAC</li>
+							<li>Incremento de la cantidad de pasajeros según peso del ómnibus</li>
+							<li>Cálculo de la cantidad total de pasajeros mediante la promediación de los tres datos anteriores.</li>
+							<li>Modo calibración de la celda de carga. Se comprueba el correcto funcionamiento, la lectura del peso de calibración y cómo la tarjeta de thingsboard vuelve a ponerse en OFF automáticamente apenas termina el modo calibración.</li>
+							<li>Comportamiento del display: mostrar en todo momento número y destino del ómnibus. Cuando éste se llena, además de esta información debe agregar debajo un mensaje que indique que está lleno. Se verifica que este mensaje se puede modificar en todo momento desde el dashboard de Setup.</li>
+							<li>Superación del nivel permitido de CO2: se comprueba la activación de la alarma en el dashboard y el encendido de las luces del cartel abordo que indican que se debe abrir las ventanas, así como la apertura automática de la escotilla.</li>
+							
+						</ul>
+						</p>
 
 <div id="bottom"></div> <!--jump to bottom majo-->	
 
