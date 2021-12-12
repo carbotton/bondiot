@@ -252,7 +252,9 @@
 
 							<h3 id="rule_5" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Total passengers rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Total_Passengers</p>	
+							<img src="./files/thingsboard/rule_total.png" style="width:60%;height:50%" />
 							<p>Esta rule chain confirma que los datos de pasajeros sean coherentes y no nulos y procede a hacer un promedio con aquellos datos que sean correctos. Este promedio nos da el número total de pasajeros a bordo del sistema y es con este atributo que se maneja si el ómnibus va o no lleno.</p>
+							<p>El bloque "change originator" del principio toma la información del Asset enviada desde la rule chain BondIoT-ESP8266-Asset y cambia el originator a Device. Sin este bloque toda la rule chain trabaja correctamente pero los cambios en el atributo donde se guarda el resultado no son reflejados en el device que lo contiene.</p>
 
 							<h3 id="rule_6" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Full bus rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Notify_full_bus</p>	
@@ -271,7 +273,7 @@
 							<p>El propósito de esta rule chain es únicamente guardar en un atributo la cantidad de pasajeros según las puertas que llega por telemetría en el campo doors.</p>
 
 							<h3 id="rule_8" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Asset rule</h4>
-							<p>Nombre de la rulechain: BondIoT-ESP8266-Asset_Doors</p>
+							<p>Nombre de la rulechain: BondIoT-ESP8266-Asset</p>
 							<p>Esta rule chain fue creada para unir en un mismo message los atributos de cantidad de pasajeros del device principal (pasajeros según celda de carga y según puertas) con el atributo de pasajeros según direcciones MAC proventiente del dispositivo que se utiliza como Sniffer.</p>
 							<p>Desde acá se llama entonces, teniendo la información agrupada en un mismo mensaje, a la rule chain encargada de ponderar los datos para determinar el número de pasajeros total.</p>
 
