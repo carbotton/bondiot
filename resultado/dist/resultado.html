@@ -136,7 +136,7 @@ thead{
 </style>
 
 <head>
-  <title>BondIoT</title>
+  <title>Resultado - BondIoT</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
   <link rel="shortcut icon" href="../../images/logo-green-bus.png" type="image/vnd.microsoft.icon"> <!-- majo: agrega icono a la pestaña -->
@@ -158,19 +158,25 @@ thead{
 <!-- Photo Grid -->
 <div class="row"> 
   <div class="column">
-    <img src="assets_res/bus_celda.jpeg" style="width:100%">    
-    <iframe src="assets_res/hatch_con_y_sin_alarma.mp4" width="100%" controls loop></iframe>     
-    <iframe src="../../files/proceso/escotilla-sola.mp4" width="100%" controls loop></iframe>   
+    <img src="assets_res/bus_celda.jpeg" style="width:100%">
+    <video id="myVideo" width="100%">
+      <source src="assets_res/hatch_con_y_sin_alarma.mp4" type="video/mp4">
+    </video>
+    <img src="assets_res/dashboard1.png" style="width:100%">
   </div>
   <div class="column">
     <img src="assets_res/bus_adentro.jpeg" style="width:100%">
-    <iframe src="assets_res/doors_prueba.mp4" width="100%" controls></iframe>
-    <iframe src="assets_res/macs.mp4" width="100%" controls></iframe>
+    <video id="myVideo1" width="100%">
+      <source src="assets_res/doors_prueba.mp4" type="video/mp4">
+    </video>    
+    <img src="assets_res/dashboard2.png" style="width:100%">
   </div>  
   <div class="column">
     <img src="assets_res/bus_celda.jpeg" style="width:100%">
-    <iframe src="assets_res/co2_cambiomaxmanual.mp4" width="100%" controls></iframe>
-    <iframe src="assets_res/loadcell_calibracion.mp4" width="100%" controls></iframe>
+    <video id="myVideo2" width="100%">
+      <source src="assets_res/co2_cambiomaxmanual.mp4" type="video/mp4">
+    </video>      
+    <img src="assets_res/dashboard3.png" style="width:100%">
   </div>
   <div class="column">
     <img src="../../images/poster.png" style="width:100%; height:95%">
@@ -179,24 +185,28 @@ thead{
 
 <div class="row"> 
   <div class="column">
-    <img src="assets_res/bus_celda.jpeg" style="width:100%">    
-    <iframe src="assets_res/hatch_con_y_sin_alarma.mp4" width="100%" controls loop></iframe>     
-    <iframe src="../../files/proceso/escotilla-sola.mp4" width="100%" controls loop></iframe>   
+    <img src="assets_res/" style="width:100%">    
+    <video id="myVideo3" width="100%">
+      <source src="assets_res/" type="video/mp4">
+    </video>  
   </div>
   <div class="column">
-    <img src="assets_res/bus_adentro.jpeg" style="width:100%">
-    <iframe src="assets_res/doors_prueba.mp4" width="100%" controls></iframe>
-    <iframe src="assets_res/macs.mp4" width="100%" controls></iframe>
+    <img src="assets_res/" style="width:100%">    
+    <video id="myVideo4" width="100%">
+      <source src="assets_res/" type="video/mp4">
+    </video>
   </div>  
   <div class="column">
-    <img src="assets_res/bus_celda.jpeg" style="width:100%">
-    <iframe src="assets_res/co2_cambiomaxmanual.mp4" width="100%" controls></iframe>
-    <iframe src="assets_res/loadcell_calibracion.mp4" width="100%" controls></iframe>
+    <img src="assets_res/" style="width:100%">    
+    <video id="myVideo5" width="100%">
+      <source src="assets_res/" type="video/mp4">
+    </video>
   </div>
   <div class="column">
-    <img src="assets_res/bus_celda.jpeg" style="width:100%">
-    <iframe src="assets_res/co2_cambiomaxmanual.mp4" width="100%" controls></iframe>
-    <iframe src="assets_res/loadcell_calibracion.mp4" width="100%" controls></iframe>
+    <img src="assets_res/" style="width:100%">    
+    <video id="myVideo6" width="100%">
+      <source src="assets_res/" type="video/mp4">
+    </video>
   </div>
   </div>
 </div>
@@ -295,7 +305,22 @@ thead{
 </div>
 <p><br><br></p>
 <p><br><br></p>
-</body>
+
+  <script>
+    var x = document.getElementById("myVideo");
+    x.autoplay = true;
+    x.loop = true;
+    x.load();
+    var x = document.getElementById("myVideo1");
+    x.autoplay = true;
+    x.loop = true;
+    x.load(); 
+    var x = document.getElementById("myVideo2");
+    x.autoplay = true;
+    x.loop = true;
+    x.load(); 
+  </script> 
+  </body>
 
 <div style="background-color:#2a3242">
 <p><br></p>
