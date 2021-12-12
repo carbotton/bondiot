@@ -111,7 +111,7 @@
 									<tr>
 										<td></td>
 										<td><a href="#rule_4">MAC address rule</a></td>
-									</tr>																
+									</tr>				
 									<tr>
 										<td></td>
 										<td><a href="#rule_5">Total passengers rule</a></td>
@@ -163,37 +163,57 @@
 							<img src="./files/thingsboard/device-att-s.png" style="width:60%;height:50%" />
 							<p>
 								<ul>
-									<li>Nombre del device: BondIoT-ESP8266-Dev</li>
+									<li>Nombre del device principal: BondIoT-ESP8266-Dev</li>
+									<li>Nombre del device sniffer: BondIoT-ESP8266-Dev-01</li>
 									<li>Tiene que ser público para poder ser visualizado en el dashboard por cualquiera que no sea dueño del dashboard.</li>
 									<li>En la pestaña Attributes se agregaron los atributos, en la imagen se muestran algunos atributos de servidor. Es importante mantener los nombres como aquí se muestra para que funcionen las Rule Chains y Widgets que dependen de estos atributos.
 										<br><br>
+										<h4>BondIoT-ESP8266-Dev</h4>
 										<h5>Los atributos agregados son:</h5>
 										<h6>Server attributes:</h6>
 											<ul>
-												<li>alarmStateCO2</li>
-												<li>co2</li>
-												<li>doors</li>
-												<li>loadcell</li>
-												<li>maxCO2</li>
-												<li>maxPassengers</li>
-												<li>nPassengers</li>
-												<li>standardWeight</li>
+												<li>passengersLoadcell (integer)</li>
+												<li>standardWeight (integer)</li>
+												<li>passengersDoors (integer)</li>
+												<li>maxPassengers (integer)</li>
+												<li>maxCO2 (integer)</li>
 											</ul>
 										<h6>Client attributes:</h6>
 											<ul>
-												<li>ledStatus</li>
+												<li>Se agregan automáticamente cuando el ESP publica en el topic de atributos.</li>
 											</ul>
 										<h6>Shared attributes:</h6>
 											<ul>
-												<li>calibrationModeLoadCell</li>
-												<li>weightForCalibration</li>
+												<li>alarmCO2 (boolean)</li>
+												<li>reachedMaxPass (boolean)</li>
+												<li>calibrationModeLoadCell (String, vale ON u OFF)</li>
+												<li>weightForCalibration (integer)</li>
+												<li>weightVariation (integer)</li>
+												<li>busMessage (String)</li>
+												<li>busNameNum (String)</li>
+												<li>loadCellTimeOut (integer)</li>
 											</ul>
+										<h4>BondIoT-ESP8266-Dev-01</h4>
+										<h5>Los atributos agregados son:</h5>
+										<h6>Server attributes:</h6>
+											<ul>
+												<li>passengersMAC (integer)</li>
+												<li>passengersRead (integer)</li>
+											</ul>
+										<h6>Client attributes:</h6>
+											<ul>
+												<li>Se agregan automáticamente cuando el ESP publica en el topic de atributos.</li>
+											</ul>
+										<h6>Shared attributes:</h6>
+											<ul>
+												<li>Ninguno</li>
+											</ul>									
 									</li>
 								</ul>
 							
 							</p>
 							<p>
-								El perfil del device en este caso lo dejamos en el default, sin definir nada en particular.
+								El perfil del device principal, es decir, BondIoT-ESP8266-Dev, es BondIoT-ESP8266-Prof. No tiene ninguna configuración en particular, fue definido simplemente para utilizarlo en la rule chain del Asset. El dispositivo BondIoT-ESP8266-Dev-01 en este caso lo dejamos en el default.
 							</p>
 
 							<h2 id="device_3" style="background:#2f3647; text-align:center">Assets</h2>
