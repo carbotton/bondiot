@@ -8,12 +8,13 @@
 body {
   margin: 0;
   font-family: serif, sans-serif, Arial;
-  background-color: #C6D0F4;
+  background-color: #3f4e85;
+  color:#CFE6FF;
 }
 
 .header {
   text-align: center;
-  padding: 32px;
+  padding: 10px;
 }
 
 .row {
@@ -39,7 +40,8 @@ body {
 }
 
 h1.title {  /*majo*/
-    background: -webkit-linear-gradient(#4c5c96, #2a3141);
+    /*background: -webkit-linear-gradient(#4c5c96, #2a3141);*/
+    background: -webkit-linear-gradient(#fff, #4c956c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Lucida Console, serif; 
@@ -47,7 +49,8 @@ h1.title {  /*majo*/
 }
 
 h2.title {  /*majo*/
-    background: -webkit-linear-gradient(#4c5c96, #2a3141);
+    /*background: -webkit-linear-gradient(#4c5c96, #2a3141);*/
+    background: -webkit-linear-gradient(#fff, #4c956c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Lucida Console, serif; 
@@ -103,11 +106,15 @@ th:first-child, td:first-child {
 }
 
 tr:nth-child(even) {
-  background-color: #99B8D9;
+  background-color: #4c5c96;
+}
+
+a{
+  color:black;
 }
 
 thead{
-  background-color: #99B8D9;
+  background-color: #4c5c96;
 }
 /* Responsive layout - makes a two column-layout instead of four columns */
 @media screen and (max-width: 800px) {
@@ -144,8 +151,8 @@ thead{
 </ul>
 <!-- Header -->
 <div class="header">
-  <h1 class="title">El resultado</h1>
-  <p>Las siguientes imágenes y videos muestran el proyecto finalizado. Además se puede ver la tabla de materiales que detalla la función de cada uno de ellos.</p>
+  <h1 class="title">RESULTADO</h1>
+  <h3>Las siguientes imágenes y videos muestran el proyecto finalizado. Además se puede ver la tabla de materiales que detalla la función de cada uno de ellos.</h3>
 </div>
 
 <!-- Photo Grid -->
@@ -187,7 +194,7 @@ thead{
 </div>
 
 <div>                 
-  <h2 id="materiales" class="title">Materiales utilizados</h2>
+  <h2 id="materiales" class="title">TABLA DE MATERIALES</h2>
       <table class="center">
         <thead>
           <tr>
@@ -267,13 +274,13 @@ thead{
             <td>ESP8266-01</td>
             <td>1</td>
             <td>Este dispositivo fue utilizado como Sniffer de direcciones MAC. Se comunica con Thingsboard.</td>
-            <td><a href="">Eneka</a></td>                   
+            <td><a href="https://www.electronica.uy/robotica/modulos-comunicacion/m%C3%B3dulo-wifi-esp8266-esp-01-detalle.html">Eneka</a></td>
           </tr>
           <tr>
             <td>Regulador de tensión</td>
             <td>1</td>
-            <td></td>
-            <td><a href="">Eneka</a></td>                   
+            <td>La fuente de alimentación del sistema es de 5V pero el ESP8266 debe alimentarse con 3V, para esto se utilizó el regulador de tensión.</td>
+            <td><a href="https://www.electronica.uy/componentes/circuitos-integrados/linr-1117-smd-regulador-3-3v-detalle.html">Eneka</a></td>                   
           </tr>
         </tbody>
       </table>                    

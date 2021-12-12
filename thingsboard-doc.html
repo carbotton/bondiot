@@ -92,7 +92,11 @@
 									<tr>
 										<td></td>
 										<td><a href="#device_2">Creación de Device y Device profile</a></td>
-									</tr>									
+									</tr>	
+									<tr>
+										<td></td>
+										<td><a href="#device_3">Assets</a></td>
+									</tr>																		
 									<tr>
 										<td>Rule chains</td>
 										<td><a href="#rule_1">Root rule</a></td>
@@ -119,7 +123,11 @@
 									<tr>
 										<td></td>
 										<td><a href="#rule_7">Doors rule</a></td>
-									</tr>																	
+									</tr>	
+									<tr>
+										<td></td>
+										<td><a href="#rule_8">Asset rule</a></td>
+									</tr>																									
 								</tbody>
 							</table>
 						</div>
@@ -188,6 +196,17 @@
 								El perfil del device en este caso lo dejamos en el default, sin definir nada en particular.
 							</p>
 
+							<h2 id="device_3" style="background:#2f3647; text-align:center">Assets</h2>
+							<p>La creación del asset es necesaria para poder combinar los datos de los dos devices del sistema. Esta combinación se refleja con una relación definida en el asset y se implementa en la rule chain BondIoT-ESP8266-Asset_Rule. </p>
+							<img src="./files/thingsboard/asset1.png" style="width:60%;height:50%" />
+
+							<img src="./files/thingsboard/asset2.png" style="width:60%;height:50%" />
+							<p>El Asset type puede ser cualquiera a los efectos de este proyecto, en este caso se llama igual que el Asset y se define en el momento de creación, en la misma ventana.</p>
+							<img src="./files/thingsboard/asset3.png" style="width:60%;height:50%" />
+							<img src="./files/thingsboard/asset4.png" style="width:60%;height:50%" />
+							<p>Para que la rule chain funcione las relaciones se crean como se muestra en la imagen. La dirección es FROM y se agrega una por cada device involucrado.</p>
+														
+
 							<h2 style="background:#2f3647; text-align:center">Rule chains</h2>
 
 							<h3 id="rule_1" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Root rule</h4>
@@ -223,10 +242,17 @@
 							<p><br></p>							
 
 							<h3 id="rule_4" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">MAC address rule</h4>
-							<p>Nombre de la rulechain: </p>
+							<p>En este caso tenemos dos rule chain que se encargan de manejar las MAC. </p>
+							<p>Nombre de la rulechain: BondIoT-ESP8266-Passengers_MAC</p>
+							<img src="./files/thingsboard/rule_passmac.png" style="width:60%;height:50%" />
+							<p>Se recibe en esta rule chain desde el ESP8266-01 una cadena de direcciones MAC delimitadas por dos strings: "New reading" y "End of reading". Cuando llega un "New reading" la rule chain reinicia el contador, cuando llega un "End of reading" se termina de contar y se guarda el resultado en un atributo. Mientras se está en el estado intermedio se consume la API por cada dirección MAC que haya llegado.<br></p>
+							<p>Nombre de la rulechain: BondIoT-ESP8266-Mac_vendors_API</p>
+							<img src="./files/thingsboard/rule_apimac.png" style="width:60%;height:50%" />
+							<p>El input de esta rule chain es una única dirección MAC. Esta dirección se pasa como parámetro al bloque naranja que se encarga de consumir la API de macvendors.co. El primer script verifica en el cuerpo del response si la dirección MAC corresponde con un fabricante, es decir, es una dirección real de un teléfono conectado a la red del ómnibus. En caso de ser así, se suma 1 al contador de pasajeros y se guarda el atributo.</p>
 
 							<h3 id="rule_5" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Total passengers rule</h4>
-							<p>Nombre de la rulechain: </p>	
+							<p>Nombre de la rulechain: BondIoT-ESP8266-Total_Passengers</p>	
+							<p>Esta rule chain confirma que los datos de pasajeros sean coherentes y no nulos y procede a hacer un promedio con aquellos datos que sean correctos. Este promedio nos da el número total de pasajeros a bordo del sistema y es con este atributo que se maneja si el ómnibus va o no lleno.</p>
 
 							<h3 id="rule_6" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Full bus rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Notify_full_bus</p>	
@@ -242,6 +268,12 @@
 
 							<h3 id="rule_7" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Doors rule</h4>
 							<p>Nombre de la rulechain: BondIoT-ESP8266-Passengers_Doors</p>
+							<p>El propósito de esta rule chain es únicamente guardar en un atributo la cantidad de pasajeros según las puertas que llega por telemetría en el campo doors.</p>
+
+							<h3 id="rule_8" style="border:3px; border-style:solid; border-color:#2f3647; padding: 1em;; text-align:center">Asset rule</h4>
+							<p>Nombre de la rulechain: BondIoT-ESP8266-Asset_Doors</p>
+							<p>Esta rule chain fue creada para unir en un mismo message los atributos de cantidad de pasajeros del device principal (pasajeros según celda de carga y según puertas) con el atributo de pasajeros según direcciones MAC proventiente del dispositivo que se utiliza como Sniffer.</p>
+							<p>Desde acá se llama entonces, teniendo la información agrupada en un mismo mensaje, a la rule chain encargada de ponderar los datos para determinar el número de pasajeros total.</p>
 
 						</section>
 
