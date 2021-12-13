@@ -100,7 +100,11 @@
 
 						<h3 class="major">04 de octubre, 2021</h3>
 						<p>Durante esta semana avanzamos en la construcción de la maqueta haciendo la base y parte del cableado de componentes.</p><p> Previamente habian sido probados los componentes por separado, usando un código individual para cada uno. Esta semana comenzamos las pruebas utilizando el mismo código para todos, habiendo podido verificar el envío de medidas del sensor de CO2 via el ESP8266 hacia Thingsboard, comparando desde el Monitor Serial del IDE de Arduino la medida enviada con la mostrada en el Dashboard de Thingsboard.</p><p>Para poder programar el ESP8266 utilizando el IDE de Arduino seguimos las instrucciones mostradas en este tutorial: <a href="https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f" style="color: rgb(11, 12, 14)">Getting Started w/ NodeMCU ESP8266 on Arduino IDE.</a></p><p>Las librerías que se instalaron desde el IDE de Arduino son: PubSubClient de Nick O'Leary, para la comuniación con ThingsBoard y ArduinoJson. Para utilizar la libreria String se la puede importar directamente con la linea: <code>#include &lt;string.h&gt;</code> (notar que es "s" minúscula.</p>									
-						<center><iframe src="./files/proceso/prueba-co2-10-07.mp4" controls></iframe></center>
+						<center>
+							<video id="video4">
+      							<source src="./files/proceso/prueba-co2-10-07.mp4" type="video/mp4">
+   							</video>
+   						</center>						
 						<p></p>
 
 						<h3 class="major">06 de octubre, 2021</h3>													
@@ -123,7 +127,12 @@
 						<h3 class="major">12 de octubre, 2021</h3>
 						<p>Se corta el "techo" de la maqueta del ómnibus para facilitar el acceso al interior a la hora de hacer movimiento de pasajeros. La parte cortada se utilizará como tapa para cubrir el ómnibus cuando se hagan pruebas con el sensor de CO2. Se cortó también la caja que contiene al Servo que servirá de escotilla.</p>
 						<p>Probamos el código de calibración de la celda de carga junto con la celda ya en la confirguación que será usada en la versión final de la maqueta. Para eso utilizamos un objeto de peso conocido y comparamos la medida de nuestro programa con la de una balanza de cocina, como se muestra en el siguiente video.</p>
-						<center><iframe src="./files/proceso/calibracion-celda.mp4" height="400px" width="300px" border="1px" controls></iframe></center>
+						<center>
+							<video id="video3">
+      							<source src="./files/proceso/calibracion-celda.mp4" type="video/mp4">
+   							</video>
+   						</center>
+
 						<p> </p>
 
 						<h3 class="major">18 de octubre, 2021</h3>
@@ -162,8 +171,12 @@
 						<p>Se programa una función para encender los LEDs del cartel que indica la apertura de ventanas abordo del ómnibus. <br> El atributo que recibe el ESP maneja el encendido y apagado de los LEDs, y ese atributo es generado en Thingsboard mediante una Rule Chain. Esta Rule Chain compara el nivel de CO2 actual con el máximo nivel previamente definido y en caso de estar sobrepasado pone aviso mediante un atributo de alarma. <br> A su vez este atributo es también visualizado en el dashboard en forma de LED, tornándose de color rojo cuando se excede el máximo nivel de CO2.</p>
 						<p>En los siguientes videos se puede ver la prueba de la alarma de CO2, el movimiento del servo para la escotilla y el prendido y apagado del built-in LED y otro LED.</p>
 						<center>
-							<iframe src="./files/proceso/pruebas-11.18-1.mp4" height="200px" width="300px" controls></iframe>
-							<iframe src="./files/proceso/pruebas-11.18-2.mp4" height="200px" width="300px" controls></iframe>
+							<video id="video1" width="40%">
+      							<source src="./files/proceso/pruebas-11.18-1.mp4" type="video/mp4">
+   							</video>
+							<video id="video2" width="40%">
+      							<source src="./files/proceso/pruebas-11.18-2.mp4" type="video/mp4">
+   							</video> 
 						</center>
 						<p> </p>
 
@@ -277,6 +290,24 @@
 		<script src="assets/js/breakpoints.min.js"></script>
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
+		<script>
+    		var x = document.getElementById("video1");
+    		x.muted = true;
+    		x.controls = true;
+    		x.load();
+    		var x = document.getElementById("video2");
+    		x.muted = true;
+    		x.controls = true;
+    		x.load();
+    		var x = document.getElementById("video3");
+    		x.muted = true;
+    		x.controls = true;
+    		x.load();   
+    		var x = document.getElementById("video4");
+    		x.muted = true;
+    		x.controls = true;
+    		x.load();     		 		    		
+    	</script>
 				
 </body>
 </html>
